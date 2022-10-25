@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/services', function () {
-    return view('services');
-});
+// Login Sign Up routes
+Route::get('login', 'App\Http\Controllers\LoginController@login')->name('login');
+Route::get('signup', 'App\Http\Controllers\LoginController@signup')->name('signup');
+Route::post('store_signup', 'App\Http\Controllers\LoginController@store_signup')->name('store_signup');

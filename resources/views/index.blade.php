@@ -21,7 +21,7 @@
                     <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('services')}}">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="contacts.html">Contacts</a></li>
-                </ul><a class="btn btn-primary shadow" role="button" href="signup.html" style="background: #01AA4F;border-style: none;">Sign up</a>
+                </ul><a class="btn btn-primary shadow" role="button" href="{{ route('signup') }}" style="background: #01AA4F;border-style: none;">Sign up</a>
             </div>
         </div>
     </nav>
