@@ -87,12 +87,43 @@
             </div>
         </div>
     </section>
-    <footer class="bg-primary-gradient"></footer>
-        <div class="container py-5 py-lg-5">
-            <div class="text-muted d-flex justify-content-between align-items-center pt-5">
-                <p class="mb-5">Hak Cipta © 2022 Bersii</p>
-                <ul class="list-inline mb-5">
-                    <li class="list-inline-item"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-facebook">
+    <footer class="bg-primary-gradient">
+        <div class="container py-4 py-lg-5">
+            <div class="row justify-content-center">
+                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+                    <h3 class="fs-6 fw-bold">Services</h3>
+                    <ul class="list-unstyled">
+                        <li></li>
+                        <li><a href="#">Refill</a></li>
+                        <li><a href="#">B2B</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+                    <h3 class="fs-6 fw-bold">About</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Company</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Legacy</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+                    <h3 class="fs-6 fw-bold">Careers</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Job openings</a></li>
+                        <li><a href="#">Employee success</a></li>
+                        <li><a href="#">Benefits</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 text-center text-lg-start d-flex flex-column align-items-center order-first align-items-lg-start order-lg-last item social">
+                    <div class="fw-bold d-flex align-items-center mb-2"><span class="bs-icon-sm bs-icon-circle bs-icon-primary d-flex justify-content-center align-items-center bs-icon me-2" style="background: #01AA4F;"></span><span>Bersii</span></div>
+                    <p class="text-muted copyright">Sem eleifend donec molestie, integer quisque orci aliquam.</p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-muted d-flex justify-content-between align-items-center pt-3">
+                <p class="mb-0">Hak Cipta © 2022 Bersii</p>
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-facebook">
                             <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"></path>
                         </svg></li>
                     <li class="list-inline-item"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-twitter">
@@ -109,4 +140,7 @@
             </div>
         </div>
     </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bold-and-bright.js"></script>
 </body>
