@@ -57,6 +57,7 @@ class LoginController extends Controller
         ]);
         $data = $request->all();
         $create = User::create([
+            'id' => 'BRS-'.rand(100000,1000000).'',
             'name' => $data['name'],
             'email' => $data['email'],
             'number' => $data['number'],

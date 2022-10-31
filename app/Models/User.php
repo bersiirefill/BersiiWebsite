@@ -20,6 +20,7 @@ class User extends Authenticatable
     protected $table ="users_bersiis";
     protected $primaryKey = "id";
     protected $fillable = [
+        'id',
         'name',
         'email',
         'number',
