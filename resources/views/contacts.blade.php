@@ -14,20 +14,24 @@
 </head>
 
 <body style="/*background: url(&quot;design.jpg&quot;);*/background-position: 0 -60px;">
-    <nav class="navbar navbar-light navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav">
-        <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span>Bersii</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+<nav class="navbar navbar-light navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
+                <img src="img/horizontal.png" style="max-height: 35px">
+            </a>
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="contacts.html">Contacts</a></li>
-                </ul><a class="btn btn-primary shadow" role="button" href="signup.html" style="background: #01AA4F;border-style: none;">Sign up</a>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('services')}}">Services</a></li>
+                    <li class="nav-item"><a class="nav-link  active" href="{{ url('contacts')}}">Contacts</a></li>
+                </ul><a class="btn btn-primary shadow" role="button" href="{{ route('daftar') }}" style="background: #01AA4F;border-style: none;">Daftar</a>
             </div>
         </div>
     </nav>
-    <section class="py-5">
-        <div class="container py-5">
-            <div class="row mb-5">
+    <section class="py-2">
+        <div class="container py-2">
+            <div class="row mb-2">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
                     <p class="fw-bold text-success mb-2">Contacts</p>
                     <h2 class="fw-bold">How you can reach us</h2>

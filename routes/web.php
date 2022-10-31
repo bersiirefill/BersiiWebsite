@@ -17,6 +17,9 @@ Route::get('/', 'App\Http\Controllers\LandingController@index')->name('home');
 Route::get('/contacts', function(){
     return view('contacts');
 });
+Route::get('/services', function(){
+    return view('services');
+});
 // Login Sign Up routes
 Route::get('login', 'App\Http\Controllers\LoginController@login')->name('login');
 Route::get('daftar', 'App\Http\Controllers\LoginController@signup')->name('daftar');

@@ -8,21 +8,25 @@
     <meta name="theme-color" content="#e9f5db">
     <link rel="icon" type="image/svg+xml" sizes="271x259" href="assets/img/just%20bersii%20logo.svg">
     <link rel="icon" type="image/svg+xml" sizes="271x259" href="assets/img/just%20bersii%20logo.svg">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
 </head>
 
 <body style="/*background: url(&quot;design.jpg&quot;);*/background-position: 0 -60px;">
-    <nav class="navbar navbar-light navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav">
-        <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span>Bersii</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+<nav class="navbar navbar-light navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
+                <img src="img/horizontal.png" style="max-height: 35px">
+            </a>
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contacts.html">Contacts</a></li>
-                </ul><a class="btn btn-primary shadow" role="button" href="signup.html" style="background: #01AA4F;border-style: none;">Sign up</a>
-            </div>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link  active" href="{{ url('services')}}">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('contacts')}}">Contacts</a></li>
+                </ul><a class="btn btn-primary shadow" role="button" href="{{ route('daftar') }}" style="background: #01AA4F;border-style: none;">Daftar</a>
+            </div>5
         </div>
     </nav>
     <section class="py-5">
