@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Lupa Password - Bersii</title>
+    <title>Lupa Password Verifikasi - Bersii</title>
     <meta name="theme-color" content="#e9f5db">
     <link rel="icon" type="image/svg+xml" sizes="271x259" href="assets/img/just%20bersii%20logo.svg">
     <link rel="icon" type="image/svg+xml" sizes="271x259" href="assets/img/just%20bersii%20logo.svg">
@@ -33,7 +33,10 @@
         <div class="container">
             <div class="row mb-3">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
-                    <h2 class="fw-bold">Lupa Password</h2>
+                    <h2 class="fw-bold">Verifikasi Email</h2>
+                </div>
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <p class="text-muted">Masukan kode verifikasi yang telah kami kirim melaui email yang telah kamu masukan sebelumnya</p>
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
@@ -41,10 +44,10 @@
                     <div>
                         <form class="p-3 p-xl-4" action="{{ route('store_signup') }}" method="POST" enctype="multipart/form-data">
                             <div class="mb-3">
-                                <input class="form-control" type="email" id="" name="email" placeholder="Email">
+                                <input class="form-control" type="number" id="" name="kodeverifikasi" placeholder="Kode verifikasi">
                             </div>
                             <div>
-                                <button class="btn btn-primary shadow d-block w-100" type="submit" id="submit" name="submit" style="background: #01AA4F;border-style: none;">Reset Kata Sandi</button>
+                                <button class="btn btn-primary shadow d-block w-100" type="submit" id="submit" name="submit" style="background: #01AA4F;border-style: none;">Verifikasi</button>
                             </div>
                         </form>
                     </div>
