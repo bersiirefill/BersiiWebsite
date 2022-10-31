@@ -297,11 +297,20 @@
                         </li>
                 </ul>
             </div>
+            <div>
+                <span id="google_translate_element"></span>
+            </div>
         </div>
     </footer>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bold-and-bright.js"></script>
+    <script type="text/javascript">// <![CDATA[
+        function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'id', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+        // ]]></script>
+        <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script>
 </body>
 
 </html>

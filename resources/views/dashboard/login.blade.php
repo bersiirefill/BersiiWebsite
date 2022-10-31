@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Login - Bersii</title>
+    <title>Masuk - Bersii</title>
     <meta name="theme-color" content="#e9f5db">
     <link rel="icon" type="image/svg+xml" sizes="271x259" href="img/just%20bersii%20logo.svg">
     <link rel="icon" type="image/svg+xml" sizes="271x259" href="img/just%20bersii%20logo.svg">
@@ -64,7 +64,7 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
-                    <h2 class="fw-bold">Log In</h2>
+                    <h2 class="fw-bold">Masuk</h2>
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
@@ -75,11 +75,18 @@
                             <div class="mb-3"><input class="form-control" type="email" id="emaillogin-1" name="Email" placeholder="Email"></div>
                             <div class="mb-3"><input class="form-control" type="password" id="passlogin-1" name="Password" placeholder="Kata Sandi"></div>
                             <div>
-                                <button class="btn btn-primary shadow d-block w-100" type="submit" id="submit" name="submit" style="background: #01AA4F;border-style: none;">Log In</button>
+                                <button class="btn btn-primary shadow d-block w-100" type="submit" id="submit" name="submit" style="background: #01AA4F;border-style: none;">Masuk</button>
                             </div>
                             <div class="text-right text-opacityf">
                                 <br>
-                                <p style="text-align: center;">Lupa kata sandi ?</p>
+                                <p style="text-align: center;">Lupa kata sandi?</p>
+                                <p style="text-align: center;">
+                                    @if (Route::has('password.request'))
+                                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                                            {{ __('Lupa kata sandi??') }}
+                                        </a>
+                                    </p>
+                                    @endif
                             </div>
                         </form>
                     </div>
