@@ -24,15 +24,15 @@
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link active" href="{{ route('home') }}">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('services')}}">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contacts.html">Contacts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('contacts')}}">Contacts</a></li>
                 </ul><a class="btn btn-primary shadow" role="button" href="{{ route('daftar') }}" style="background: #01AA4F;border-style: none;">Daftar</a>
             </div>
         </div>
     </nav>
     <header class="bg-primary-gradient">
-        <header class="bg-primary-gradient py-5">
-            <div class="container py-4 py-xl-5">
-                <div class="row py-5">
+        <header class="bg-primary-gradient py-0">
+            <div class="container py-0 py-xl-0">
+                <div class="row py-0">
                     <div class="col-md-6 text-center text-md-start d-flex d-sm-flex d-md-flex justify-content-center align-items-center justify-content-md-start align-items-md-center justify-content-xl-end mb-4">
                         <div style="max-width: 450px;">
                             <p class="fw-bold text-success mb-2">Special Offer</p>
