@@ -27,6 +27,7 @@ class User extends Authenticatable
         'number',
         'address',
         'password',
+        'forgot_token',
     ];
 
     public function wallet(){

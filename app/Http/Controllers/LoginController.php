@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Session;
+use Illuminate\Support\Facades\View;
 
 // Pakai Mail Controller
 use App\Http\Controllers\MailController;
@@ -36,6 +37,14 @@ class LoginController extends Controller
             return redirect('dashboard');
         }else{
             return view('dashboard.forgotpass');
+        }
+    }
+
+    public function verifikasi_kode(Request $request){
+        if(Auth::check()){
+            return redirect('dashboard');
+        }else{
+            return View::make('dashboard.emailverif')->with('email', $request->email);
         }
     }
 
@@ -102,7 +111,23 @@ class LoginController extends Controller
         // Kirim
         $snd = MailController::index($sch_name->name, $mail, $rnd);
         if($snd == true){
-            return 'Berhasil';
+            return redirect()->route('verifikasi_kode', ['email' => $request->email]);
+        }
+    }
+
+    public function login_action_forgot(Request $request){
+        $data = DB::table('users_bersiis')
+        ->where('email', '=', $request->email)
+        ->where('forgot_token', '=', $request->kode_verifikasi)
+        ->first();
+        if(Auth::loginUsingId($data->id)){
+            User::where('email', $request->email)->update([
+                'forgot_token' => NULL,
+            ]);
+            return redirect('dashboard');
+        }else{
+            Session::flash('error', 'Kode verifikasi salah/tidak berlaku !');
+            return redirect()->route('verifikasi_kode', ['email' => $request->email]);
         }
     }
 }

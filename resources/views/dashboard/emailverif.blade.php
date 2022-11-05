@@ -11,9 +11,37 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="manifest" href="js/manifest.json">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+    <!-- swal -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <style>
+        .swal-footer{
+            text-align: center;
+        }
+        /* .swal-button{
+            background-color: #01AA4F;
+        } */
+    </style>
 </head>
 
 <body style="/*background: url(&quot;design.jpg&quot;);*/background-position: 0 -60px;">
+    @if(session('error'))
+        <script type="text/javascript">
+            swal({
+                icon: 'error',
+                title: 'Gagal',
+                text: '{{ session('error') }}',
+            })
+        </script>
+    @elseif(session('success'))
+        <script type="text/javascript">
+            swal({
+                icon: 'success',
+                title: 'Sukses',
+                text: '{{ session('success') }}',
+            })
+        </script>
+    @endif
     <nav class="navbar navbar-light navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
@@ -33,7 +61,7 @@
         <div class="container">
             <div class="row mb-3">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
-                    <h2 class="fw-bold">Verifikasi Email</h2>
+                    <h2 class="fw-bold">Verifikasi Kode Pemulihan</h2>
                 </div>
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
                     <p class="text-muted">Masukan kode verifikasi yang telah kami kirim melaui email yang telah kamu masukan sebelumnya</p>
@@ -42,9 +70,11 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-md-6 col-xl-4">
                     <div>
-                        <form class="p-3 p-xl-4" action="{{ route('store_signup') }}" method="POST" enctype="multipart/form-data">
+                        <form class="p-3 p-xl-4" action="{{ route('login_action_forgot') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="mb-3">
-                                <input class="form-control" type="number" id="" name="kodeverifikasi" placeholder="Kode verifikasi">
+                                <input type="hidden" name="email" id="email" value="<?php echo $email ?>">
+                                <input class="form-control" type="number" id="kode_verifikasi" name="kode_verifikasi" placeholder="Kode verifikasi">
                             </div>
                             <div>
                                 <button class="btn btn-primary shadow d-block w-100" type="submit" id="submit" name="submit" style="background: #01AA4F;border-style: none;">Verifikasi</button>

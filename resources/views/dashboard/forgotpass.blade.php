@@ -40,6 +40,7 @@
                 <div class="col-md-6 col-xl-4">
                     <div>
                         <form class="p-3 p-xl-4" action="{{ route('store_forgot') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="mb-3">
                                 <input class="form-control" type="email" id="email" name="email" placeholder="Email" required>
                             </div>
