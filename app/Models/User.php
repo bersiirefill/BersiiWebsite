@@ -19,6 +19,7 @@ class User extends Authenticatable
      */
     protected $table ="users_bersiis";
     protected $primaryKey = "id";
+    protected $keyType = 'string';
     protected $fillable = [
         'id',
         'name',
@@ -27,6 +28,14 @@ class User extends Authenticatable
         'address',
         'password',
     ];
+
+    public function wallet(){
+        return $this->hasOne('App\Models\Wallet', 'id', 'id');
+    }
+
+    public function riwayat_topup(){
+        return $this->hasMany('App\Models\riwayat_topup', 'id_user', 'id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

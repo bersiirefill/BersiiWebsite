@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Contacts - Bersii</title>
     <meta name="theme-color" content="#e9f5db">
-    <link rel="icon" type="image/svg+xml" sizes="271x259" href="assets/img/just%20bersii%20logo.svg">
-    <link rel="icon" type="image/svg+xml" sizes="271x259" href="assets/img/just%20bersii%20logo.svg">
+    <link rel="icon" type="image/svg+xml" sizes="271x259" href="img/just%20bersii%20logo.svg">
+    <link rel="icon" type="image/svg+xml" sizes="271x259" href="img/just%20bersii%20logo.svg">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="js/manifest.json">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
 </head>
 
@@ -136,9 +136,9 @@
             </div>
         </div>
     </footer>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bold-and-bright.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bold-and-bright.js"></script>
 </body>
 
 </html>

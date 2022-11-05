@@ -11,5 +11,4 @@ class WalletController extends Controller
         // Dibuat setelah tampilan index ada
     }
 
-    public function 
 }

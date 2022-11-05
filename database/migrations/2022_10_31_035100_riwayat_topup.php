@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('riwayat_topup', function (Blueprint $table){
             $table->bigIncrements('id');
-            $table->string('id_user');
+            $table->string('id_user')->index();
             $table->bigInteger('nominal');
             $table->dateTime('tanggal');
             $table->string('status');
+            $table->timestamps();
         });
     }
 

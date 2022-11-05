@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Session;
+
+// Pakai Mail Controller
+use App\Http\Controllers\MailController;
 
 class LoginController extends Controller
 {
@@ -24,6 +28,14 @@ class LoginController extends Controller
             return redirect('dashboard');
         }else{
             return view('dashboard.signup');
+        }
+    }
+
+    public function lupa_kata_sandi(){
+        if(Auth::check()){
+            return redirect('dashboard');
+        }else{
+            return view('dashboard.forgotpass');
         }
     }
 
@@ -70,6 +82,27 @@ class LoginController extends Controller
         }else{
             Session::flash('error', 'Pendaftaran gagal !');
             return redirect('daftar');
+        }
+    }
+
+    public function store_forgot_password(Request $request){
+        $request->validate([
+            'email' => 'required|exists:users_bersiis'
+        ]);
+        $mail = $request->email;
+        // Buat token login
+        $rnd = rand(100000,1000000);
+        User::where('email', $mail)->update([
+            'forgot_token' => $rnd
+        ]);
+        // Ambil nama
+        $sch_name = DB::table('users_bersiis')
+        ->select('name')
+        ->where('email', '=', $mail)->first();
+        // Kirim
+        $snd = MailController::index($sch_name->name, $mail, $rnd);
+        if($snd == true){
+            return 'Berhasil';
         }
     }
 }

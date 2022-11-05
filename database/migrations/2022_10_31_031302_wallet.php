@@ -14,8 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('wallet', function (Blueprint $table) {
-            $table->string('id')->primary();
+            $table->string('id')->index();
             $table->bigInteger('saldo');
+            $table->timestamps();
         });
     }
 
