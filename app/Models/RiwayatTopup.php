@@ -5,16 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class riwayat_topup extends Model
+class RiwayatTopup extends Model
 {
     use HasFactory;
     protected $table = 'riwayat_topup';
     protected $primaryKey = 'id';
     protected $fillable = [
         'id_user',
+        'topup_id',
         'nominal',
         'tanggal',
-        'status'
+        'payment_status',
+        'snap_token'
     ];
 
     public function topup_users(){

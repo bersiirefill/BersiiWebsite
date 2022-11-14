@@ -124,6 +124,7 @@ class LoginController extends Controller
             User::where('email', $request->email)->update([
                 'forgot_token' => NULL,
             ]);
+            Session::flash('success', 'Harap segera melakukan perubahan kata sandi Anda !');
             return redirect('dashboard');
         }else{
             Session::flash('error', 'Kode verifikasi salah/tidak berlaku !');

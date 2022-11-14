@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('wallet', function (Blueprint $table) {
             $table->string('id')->index();
-            $table->bigInteger('saldo');
+            $table->decimal('saldo', 10, 2);
             $table->timestamps();
         });
     }

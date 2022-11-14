@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WalletController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/emailverif', function(){
-    return view('dashboard.emailverif');
-});
 
 Route::get('/', 'App\Http\Controllers\LandingController@index')->name('home');
 Route::get('/contacts', function(){
@@ -34,6 +31,10 @@ Route::post('login_action_forgot', 'App\Http\Controllers\LoginController@login_a
 
 Route::middleware('auth')->group(function(){
     Route::get('dashboard', 'App\Http\Controllers\DashboardController@dashboard')->name('dashboard');
+    // Wallet
+    Route::get('wallet', 'App\Http\Controllers\WalletController@index')->name('wallet');
+    Route::get('checkout', 'App\Http\Controllers\WalletController@checkout')->name('checkout');
+    // Logout
     Route::get('logout_action', 'App\Http\Controllers\LoginController@logout_action')->name('logout_action');
 });
 
