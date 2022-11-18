@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Lupa Password - Bersii</title>
+    <title>Lupa Kata Sandi - Bersii</title>
     <meta name="theme-color" content="#e9f5db">
-    <link rel="icon" type="image/svg+xml" sizes="271x259" href="assets/img/just%20bersii%20logo.svg">
-    <link rel="icon" type="image/svg+xml" sizes="271x259" href="assets/img/just%20bersii%20logo.svg">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" sizes="271x259" href="img/just%20bersii%20logo.svg">
+    <link rel="icon" type="image/svg+xml" sizes="271x259" href="img/just%20bersii%20logo.svg">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="manifest" href="js/manifest.json">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
 </head>
 
@@ -33,18 +33,19 @@
         <div class="container">
             <div class="row mb-3">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
-                    <h2 class="fw-bold">Lupa Password</h2>
+                    <h2 class="fw-bold">Lupa Kata Sandi</h2>
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-md-6 col-xl-4">
                     <div>
-                        <form class="p-3 p-xl-4" action="{{ route('store_signup') }}" method="POST" enctype="multipart/form-data">
+                        <form class="p-3 p-xl-4" action="{{ route('store_forgot') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="mb-3">
-                                <input class="form-control" type="email" id="" name="email" placeholder="Email">
+                                <input class="form-control" type="email" id="email" name="email" placeholder="Email" required>
                             </div>
                             <div>
-                                <button class="btn btn-primary shadow d-block w-100" type="submit" id="submit" name="submit" style="background: #01AA4F;border-style: none;">Reset Kata Sandi</button>
+                                <button class="btn btn-primary shadow d-block w-100" type="submit" id="submit" name="submit" style="background: #01AA4F;border-style: none;">Pulihkan Kata Sandi</button>
                             </div>
                         </form>
                     </div>
@@ -119,9 +120,9 @@
             </div>
         </div>
     </footer>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bold-and-bright.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bold-and-bright.js"></script>
 </body>
 
 </html>

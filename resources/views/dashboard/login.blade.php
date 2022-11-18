@@ -79,14 +79,9 @@
                             </div>
                             <div class="text-right text-opacityf">
                                 <br>
-                                <p style="text-align: center;">Lupa kata sandi?</p>
-                                <p style="text-align: center;">
-                                    @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                                            {{ __('Lupa kata sandi??') }}
-                                        </a>
-                                    </p>
-                                    @endif
+                                <a href="{{ route('lupa_sandi') }}">
+                                    <p style="text-align: center;">Lupa kata sandi?</p>
+                                </a>
                             </div>
                         </form>
                     </div>
@@ -147,7 +142,7 @@
             </div>
         </div>
     </footer>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bold-and-bright.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/bold-and-bright.js"></script>
 </body>

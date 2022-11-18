@@ -14,14 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users_bersiis', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->string('id')->primary();
             $table->string('name');
             $table->string('email');
             $table->string('number');
             $table->string('address');
             $table->string('password');
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('updated_at')->nullable();
+            $table->integer('forgot_token')->nullable();
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 
