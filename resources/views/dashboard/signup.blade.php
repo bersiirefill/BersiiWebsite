@@ -65,7 +65,7 @@
         <div class="container">
             <div class="row mb-3">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
-                    <h2 class="fw-bold">Daftar Sekarang!</h2>
+                    <h2 class="fw-bold">Daftar Jadi Mitra Bersii Sekarang!</h2>
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
