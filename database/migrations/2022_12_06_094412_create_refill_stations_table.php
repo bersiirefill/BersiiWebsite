@@ -13,15 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users_bersiis', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('nama')->nullable();
-            $table->string('email')->nullable();
-            $table->string('nomor_telepon')->nullable();
+        Schema::create('refill_stations', function (Blueprint $table) {
+            $table->string('nomor_seri')->primary();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
+            $table->enum('status_mesin', ['0', '1', '2'])->comment('0=tidak aktif, 1=aktif, 2=maintenance')->nullable();
             $table->string('alamat')->nullable();
-            $table->string('password')->nullable();
-            $table->integer('forgot_token')->nullable();
-            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_bersiis');
+        Schema::dropIfExists('stations');
     }
 };

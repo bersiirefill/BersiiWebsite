@@ -28,10 +28,10 @@ class UserAndWalletSeeder extends Seeder
         // Hanustavira Guru Acarya
         DB::table('users_bersiis')->insert([
             'id' => $rand1,
-            'name' => 'Hanustavira Guru Acarya',
+            'nama' => 'Hanustavira Guru Acarya',
             'email' => 'hanustavira.acarya@binus.ac.id',
-            'number' => '6285745402100',
-            'address' => 'Singosari',
+            'nomor_telepon' => '6285745402100',
+            'alamat' => 'Singosari',
             'password' => Hash::make('sunibngalam'),
             'forgot_token' => NULL,
             'remember_token' => Str::random(),
@@ -48,10 +48,10 @@ class UserAndWalletSeeder extends Seeder
         // Fauzan Mustofa
         DB::table('users_bersiis')->insert([
             'id' => $rand2,
-            'name' => 'Fauzan Mustofa',
+            'nama' => 'Fauzan Mustofa',
             'email' => 'fauzanmusthofa.fm@gmail.com',
-            'number' => '6281111116098',
-            'address' => 'Sawojajar',
+            'nomor_telepon' => '6281111116098',
+            'alamat' => 'Sawojajar',
             'password' => Hash::make('sunibngalam'),
             'forgot_token' => NULL,
             'remember_token' => Str::random(),
@@ -68,10 +68,10 @@ class UserAndWalletSeeder extends Seeder
         // Viana Salsabila Tauda
         DB::table('users_bersiis')->insert([
             'id' => $rand3,
-            'name' => 'Viana Salsabila Tauda',
+            'nama' => 'Viana Salsabila Tauda',
             'email' => 'vianatauda@gmail.com',
-            'number' => '6281344847038',
-            'address' => 'Sawojajar',
+            'nomor_telepon' => '6281344847038',
+            'alamat' => 'Sawojajar',
             'password' => Hash::make('sunibngalam'),
             'forgot_token' => NULL,
             'remember_token' => Str::random(),
@@ -88,10 +88,10 @@ class UserAndWalletSeeder extends Seeder
         // Thomas Harman Bintang
         DB::table('users_bersiis')->insert([
             'id' => $rand4,
-            'name' => 'Thomas Harman Bintang',
+            'nama' => 'Thomas Harman Bintang',
             'email' => 'thomasharman99@gmail.com',
-            'number' => '6285171191215',
-            'address' => 'Blimbing',
+            'nomor_telepon' => '6285171191215',
+            'alamat' => 'Blimbing',
             'password' => Hash::make('sunibngalam'),
             'forgot_token' => NULL,
             'remember_token' => Str::random(),
@@ -108,10 +108,10 @@ class UserAndWalletSeeder extends Seeder
         // Achmad Agil Susanto
         DB::table('users_bersiis')->insert([
             'id' => $rand5,
-            'name' => 'Achmad Agil Susanto',
+            'nama' => 'Achmad Agil Susanto',
             'email' => 'ahmadagilsusanto@gmail.com',
-            'number' => '6282237174435',
-            'address' => 'Sawojajar',
+            'nomor_telepon' => '6282237174435',
+            'alamat' => 'Sawojajar',
             'password' => Hash::make('sunibngalam'),
             'forgot_token' => NULL,
             'remember_token' => Str::random(),

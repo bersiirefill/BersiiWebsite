@@ -20,7 +20,7 @@ class LoginController extends Controller
         if(Auth::check()){
             return redirect('dashboard');
         }else{
-            return view('dashboard.login');
+            return view('dashboard.login.login');
         }
     }
 
@@ -28,7 +28,7 @@ class LoginController extends Controller
         if(Auth::check()){
             return redirect('dashboard');
         }else{
-            return view('dashboard.signup');
+            return view('dashboard.login.signup');
         }
     }
 
@@ -36,17 +36,17 @@ class LoginController extends Controller
         if(Auth::check()){
             return redirect('dashboard');
         }else{
-            return view('dashboard.forgotpass');
+            return view('dashboard.login.forgotpass');
         }
     }
 
-    public function verifikasi_kode(Request $request){
-        if(Auth::check()){
-            return redirect('dashboard');
-        }else{
-            return View::make('dashboard.emailverif')->with('email', $request->email);
-        }
-    }
+    // public function verifikasi_kode(Request $request){
+    //     if(Auth::check()){
+    //         return redirect('dashboard');
+    //     }else{
+    //         return View::make('dashboard.emailverif')->with('email', $request->email);
+    //     }
+    // }
 
     public function login_action(Request $request){
         $data = [

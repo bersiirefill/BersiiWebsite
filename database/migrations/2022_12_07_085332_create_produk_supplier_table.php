@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('admins', function (Blueprint $table) {
-            $table->string('id_admin');
-            $table->string('email')->nullable();
-            $table->string('password')->nullable();
-            $table->string('nama_admin')->nullable();
-            $table->string('jabatan')->nullable();
+        Schema::create('produk_supplier', function (Blueprint $table) {
+            $table->string('id_produk')->primary();
+            $table->string('kode_supplier')->index()->nullable();
+            $table->string('nama_produk')->nullable();
+            $table->bigInteger('stok')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('daftar_produks');
     }
 };

@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('stations', function (Blueprint $table) {
-            $table->string('nomor_seri')->primary();
-            $table->string('lokasi');
-            $table->string('produk');
-            $table->integer('kapasitas_tangki');
+        Schema::create('jenis_refill_riwayat', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('id_trx')->index();
+            $table->string('id_produk')->index();
+            $table->bigInteger('jumlah')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stations');
+        Schema::dropIfExists('jenis_refill_riwayat');
     }
 };

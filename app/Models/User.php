@@ -22,10 +22,10 @@ class User extends Authenticatable
     protected $keyType = 'string';
     protected $fillable = [
         'id',
-        'name',
+        'nama',
         'email',
-        'number',
-        'address',
+        'nomor_telepon',
+        'alamat',
         'password',
         'forgot_token',
     ];
@@ -35,7 +35,11 @@ class User extends Authenticatable
     }
 
     public function riwayat_topup(){
-        return $this->hasMany('App\Models\riwayat_topup', 'id_user', 'id');
+        return $this->hasMany('App\Models\RiwayatTopup', 'id_user', 'id');
+    }
+
+    public function user_riwayat_refill(){
+        return $this->hasMany('App\Models\RiwayatRefill', 'id_user', 'id');
     }
 
     /**

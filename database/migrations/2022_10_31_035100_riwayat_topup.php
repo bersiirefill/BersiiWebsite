@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('riwayat_topup', function (Blueprint $table){
             $table->bigIncrements('id');
-            $table->string('id_user')->index();
-            $table->string('topup_id');
-            $table->decimal('nominal', 10, 2);
-            $table->dateTime('tanggal');
-            $table->enum('payment_status', ['1', '2', '3'])->comment('1=menunggu pembayaran, 2=sudah dibayar, 3=kadaluarsa');
+            $table->string('id_user')->index()->nullable();
+            $table->string('topup_id')->nullable();
+            $table->decimal('nominal', 10, 2)->nullable();
+            $table->dateTime('tanggal')->nullable();
+            $table->enum('payment_status', ['1', '2', '3'])->comment('1=menunggu pembayaran, 2=sudah dibayar, 3=kadaluarsa')->nullable();
             $table->string('snap_token', 36)->nullable();
             $table->timestamps();
         });

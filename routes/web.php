@@ -31,6 +31,11 @@ Route::post('login_action_forgot', 'App\Http\Controllers\LoginController@login_a
 
 Route::middleware('auth')->group(function(){
     Route::get('dashboard', 'App\Http\Controllers\DashboardController@dashboard')->name('dashboard');
+    // Supplier
+    Route::get('supplier', 'App\Http\Controllers\DashboardController@supplier')->name('supplier');
+    Route::post('save_supplier', 'App\Http\Controllers\WarehouseController@new_supplier')->name('save_supplier');
+    Route::post('update_supplier', 'App\Http\Controllers\WarehouseController@update_supplier')->name('update_supplier');
+    Route::get('delete_supplier', 'App\Http\Controllers\WarehouseController@delete_supplier')->name('delete_supplier');
     // Logout
     Route::get('logout_action', 'App\Http\Controllers\LoginController@logout_action')->name('logout_action');
 });
