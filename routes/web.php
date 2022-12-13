@@ -36,6 +36,8 @@ Route::middleware('auth')->group(function(){
     Route::post('save_supplier', 'App\Http\Controllers\WarehouseController@new_supplier')->name('save_supplier');
     Route::post('update_supplier', 'App\Http\Controllers\WarehouseController@update_supplier')->name('update_supplier');
     Route::get('delete_supplier', 'App\Http\Controllers\WarehouseController@delete_supplier')->name('delete_supplier');
+    // Produk Supplier
+    Route::get('produk_supplier', 'App\Http\Controllers\DashboardController@daftar_produk')->name('produk_supplier');
     // Logout
     Route::get('logout_action', 'App\Http\Controllers\LoginController@logout_action')->name('logout_action');
 });
