@@ -23,8 +23,8 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link active" href="{{ route('home') }}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('services')}}">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('contacts')}}">Contacts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('services')}}">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('contacts')}}">Contacts</a></li>
                 </ul><a class="btn btn-primary shadow" role="button" href="{{ route('daftar') }}" style="background: #01AA4F;border-style: none;">Daftar Jadi Mitra Bersii !</a>
             </div>
         </div>
@@ -74,7 +74,7 @@
     </section>
 
     <section class="py-5"></section>
-    
+
     <section>
         <div class="container bg-primary-gradient py-5">
             <div class="row">
@@ -287,7 +287,7 @@
                                 </svg>
                             </a>
                         </li>
-                        
+
                         <li class="list-inline-item">
                             <a href="https://www.instagram.com/bersii.id/" target="_blank">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="#01AA4F" viewBox="0 0 16 16" class="bi bi-instagram">

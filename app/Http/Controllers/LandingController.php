@@ -10,4 +10,10 @@ class LandingController extends Controller
     public function index(){
         return view('landing.index');
     }
+    public function contacts(){
+        return view('landing.contacts');
+    }
+    public function services(){
+        return view('landing.services');
+    }
 }

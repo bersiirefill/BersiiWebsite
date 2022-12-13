@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Services - Bersii</title>
     <meta name="theme-color" content="#e9f5db">
-    <link rel="icon" type="image/svg+xml" sizes="271x259" href="assets/img/just%20bersii%20logo.svg">
-    <link rel="icon" type="image/svg+xml" sizes="271x259" href="assets/img/just%20bersii%20logo.svg">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" sizes="271x259" href="{{ asset('img/just%20bersii%20logo.svg') }}">
+    <link rel="icon" type="image/svg+xml" sizes="271x259" href="{{ asset('img/just%20bersii%20logo.svg') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="manifest" href="{{ asset('js/manifest.json') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
 </head>
-
 <body style="/*background: url(&quot;design.jpg&quot;);*/background-position: 0 -60px;">
 <nav class="navbar navbar-light navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav">
         <div class="container">
