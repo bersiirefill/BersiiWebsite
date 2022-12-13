@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\WalletController;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,19 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'App\Http\Controllers\LandingController@index')->name('home');
-Route::get('/contacts', 'App\Http\Controllers\LandingController@contacts')->name('contacts');
-Route::get('/services', 'App\Http\Controllers\LandingController@services')->name('services');
+Route::get('/', [LandingController::class, 'index'])->name('home');
+Route::get('/contacts', [LandingController::class, 'contacts'])->name('contacts');
+Route::get('/services', [LandingController::class, 'services'])->name('services');
 // Login Sign Up routes
-Route::get('login', 'App\Http\Controllers\LoginController@login')->name('login');
-Route::get('daftar', 'App\Http\Controllers\LoginController@signup')->name('daftar');
-Route::get('lupa_sandi', 'App\Http\Controllers\LoginController@lupa_kata_sandi')->name('lupa_sandi');
-Route::get('verifikasi_kode', 'App\Http\Controllers\LoginController@verifikasi_kode')->name('verifikasi_kode');
-Route::post('store_verifikasi', 'App\Http\Controllers\LoginController@store_verifikasi')->name('store_verifikasi');
-Route::post('store_forgot', 'App\Http\Controllers\LoginController@store_forgot_password')->name('store_forgot');
-Route::post('store_signup', 'App\Http\Controllers\LoginController@store_signup')->name('store_signup');
-Route::post('login_action', 'App\Http\Controllers\LoginController@login_action')->name('login_action');
-Route::post('login_action_forgot', 'App\Http\Controllers\LoginController@login_action_forgot')->name('login_action_forgot');
+Route::get('login', [LoginController::class, 'login'])->name('login');
+Route::get('daftar', [LoginController::class, 'signup'])->name('daftar');
+Route::get('lupa_sandi', [LoginController::class, 'lupa_kata_sandi'])->name('lupa_sandi');
+Route::get('verifikasi_kode', [LoginController::class, 'verifikasi_kode'])->name('verifikasi_kode');
+Route::post('store_verifikasi', [LoginController::class, 'store_verifikasi'])->name('store_verifikasi');
+Route::post('store_forgot', [LoginController::class, 'store_forgot_password'])->name('store_forgot');
+Route::post('store_signup', [LoginController::class, 'store_signup'])->name('store_signup');
+Route::post('login_action', [LoginController::class, 'login_action'])->name('login_action');
+Route::post('login_action_forgot', [LoginController::class, 'login_action_forgot'])->name('login_action_forgot');
 
 Route::middleware('auth')->group(function(){
     Route::get('dashboard', 'App\Http\Controllers\DashboardController@dashboard')->name('dashboard');

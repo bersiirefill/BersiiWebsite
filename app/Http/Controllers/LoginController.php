@@ -70,19 +70,19 @@ class LoginController extends Controller
 
     public function store_signup(Request $request){
         $request->validate([
-            'name' => 'required|min:5|unique:users_bersiis',
+            'nama' => 'required|min:5|unique:users_bersiis',
             'email' =>'required|min:5|email|unique:users_bersiis',
-            'number' =>'required|min:5|unique:users_bersiis',
-            'address' =>'required|min:5',
+            'nomor_telepon' =>'required|min:5|unique:users_bersiis',
+            'alamat' =>'required|min:5',
             'password' =>'required|min:5',
         ]);
         $data = $request->all();
         $create = User::create([
             'id' => 'BRS-'.rand(100000,1000000).'',
-            'name' => $data['name'],
+            'nama' => $data['name'],
             'email' => $data['email'],
-            'number' => $data['number'],
-            'address' => $data['address'],
+            'number' => $data['nomor_telepon'],
+            'address' => $data['alamat'],
             'password' => Hash::make($data['password']),
         ]);
         if($create){
@@ -106,7 +106,7 @@ class LoginController extends Controller
         ]);
         // Ambil nama
         $sch_name = DB::table('users_bersiis')
-        ->select('name')
+        ->select('nama')
         ->where('email', '=', $mail)->first();
         // Kirim
         $snd = MailController::index($sch_name->name, $mail, $rnd);
