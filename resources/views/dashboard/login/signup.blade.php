@@ -74,16 +74,16 @@
                         <form class="p-3 p-xl-4" action="{{ route('store_signup') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
-                                <input class="form-control" type="text" id="namesignup-1" name="name" placeholder="Nama Lengkap">
+                                <input class="form-control" type="text" id="namesignup-1" name="nama" placeholder="Nama Lengkap">
                             </div>
                             <div class="mb-3">
                                 <input class="form-control" type="email" id="emailsignup-1" name="email" placeholder="Email">
                             </div>
                             <div class="mb-3">
-                                <input class="form-control" type="tel" id="numbersignup-1" name="number" placeholder="Nomor Telepon">
+                                <input class="form-control" type="tel" id="numbersignup-1" name="nomor_telepon" placeholder="Nomor Telepon">
                             </div>
                             <div class="mb-3">
-                                <textarea class="form-control" type="text" id="addresssignup-1" name="address" rows="3" placeholder="Alamat Lengkap"></textarea>
+                                <textarea class="form-control" type="text" id="addresssignup-1" name="alamat" rows="3" placeholder="Alamat Lengkap"></textarea>
                             </div>
                             <div class="mb-3">
                                 <input class="form-control" type="password" id="passsignup-1" name="password" placeholder="Kata Sandi">

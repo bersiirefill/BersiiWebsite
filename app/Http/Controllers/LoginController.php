@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Wallet;
 use Session;
 use Illuminate\Support\Facades\View;
 
@@ -77,13 +78,18 @@ class LoginController extends Controller
             'password' =>'required|min:5',
         ]);
         $data = $request->all();
+        $rnd = rand(100000,1000000);
         $create = User::create([
-            'id' => 'BRS-'.rand(100000,1000000).'',
-            'nama' => $data['name'],
+            'id' => 'BRS-'.$rnd.'',
+            'nama' => $data['nama'],
             'email' => $data['email'],
-            'number' => $data['nomor_telepon'],
-            'address' => $data['alamat'],
+            'nomor_telepon' => $data['nomor_telepon'],
+            'alamat' => $data['alamat'],
             'password' => Hash::make($data['password']),
+        ]);
+        $create = Wallet::create([
+            'id' => 'BRS-'.$rnd.'',
+            'saldo' => 0
         ]);
         if($create){
             Session::flash('success', 'Berhasil mendaftar !');
