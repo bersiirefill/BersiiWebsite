@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,17 +33,18 @@ Route::post('login_action', [LoginController::class, 'login_action'])->name('log
 Route::post('login_action_forgot', [LoginController::class, 'login_action_forgot'])->name('login_action_forgot');
 
 Route::middleware('auth')->group(function(){
-    Route::get('dashboard', 'App\Http\Controllers\DashboardController@dashboard')->name('dashboard');
+    Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
     // Supplier
-    Route::get('supplier', 'App\Http\Controllers\DashboardController@supplier')->name('supplier');
-    Route::post('save_supplier', 'App\Http\Controllers\WarehouseController@new_supplier')->name('save_supplier');
-    Route::post('update_supplier', 'App\Http\Controllers\WarehouseController@update_supplier')->name('update_supplier');
-    Route::get('delete_supplier', 'App\Http\Controllers\WarehouseController@delete_supplier')->name('delete_supplier');
+    Route::get('supplier', [DashboardController::class, 'supplier'])->name('supplier');
+    Route::post('save_supplier', [WarehouseController::class, 'new_supplier'])->name('save_supplier');
+    Route::post('update_supplier', [WarehouseController::class, 'update_supplier'])->name('update_supplier');
+    Route::get('delete_supplier', [WarehouseController::class, 'delete_supplier'])->name('delete_supplier');
     // Produk Supplier
-    Route::get('produk_supplier', 'App\Http\Controllers\DashboardController@daftar_produk')->name('produk_supplier');
+    Route::get('produk_supplier', [DashboardController::class, 'daftar_produk'])->name('produk_supplier');
+    Route::post('save_produk', [WarehouseController::class, 'new_product'])->name('save_produk');
     // Logout
-    Route::get('logout_action', 'App\Http\Controllers\LoginController@logout_action')->name('logout_action');
+    Route::get('logout_action', [LoginController::class, 'logout_action'])->name('logout_action');
 });
 
 // Coba mail
-Route::get('email', 'App\Http\Controllers\MailController@index')->name('email');
+Route::get('email', [MailController::class, 'index'])->name('email');

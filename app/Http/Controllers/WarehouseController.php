@@ -66,7 +66,18 @@ class WarehouseController extends Controller
     // Produk Supplier
     public function new_product(Request $request){
         $validate = $request->validate([
-            ''
+            'kode_supplier' => 'required'
         ]);
+        $data = $request->all();
+        for ($i = 0 ; $i < sizeof($data['nama_produk']) || $i < sizeof($data['stok']) ;$i++) {
+            $rands = 'PRD-'.rand();
+            $add = ProdukSupplier::create([
+                'id_produk' => $rands,
+                'kode_supplier' => $data['kode_supplier'],
+                'nama_produk' => $data['nama_produk'][$i],
+                'stok' => $data['stok'][$i]
+            ]);
+        }
+        return redirect('produk_supplier')->with('success', 'Berhasil mengubah data');
     }
 }

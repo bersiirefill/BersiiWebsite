@@ -67,11 +67,11 @@
                     <h5 class="modal-title">Tambah Produk</h5>
                 </div>
                 <div class="modal-body">
-                    <form method="POST" action="" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('save_produk') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label class="form-label">Supplier</label>
-                            <select class="form-control" name="nama_pemilik" id="nama_pemilik">
+                            <select class="form-control" name="kode_supplier" id="kode_supplier">
                                 @foreach($supplier as $data2)
                                     <option value="{{ $data2->kode_supplier }}">{{ $data2->kode_supplier }} - {{ $data2->nama_toko }}</option>
                                 @endforeach
@@ -88,7 +88,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Stok (liter)</label>
-                                            <input type="text" class="form-control" name="stok[]" id="stok[]">
+                                            <input type="number" class="form-control" name="stok[]" id="stok[]">
                                         </div>
                                     </div>
                                 </div>
@@ -97,7 +97,7 @@
 
                             </div>
                         </div>
-                        <button class="btn btn-primary mb-3" id="plusInput">Tambah</button>
+                        <button class="btn btn-primary mb-3" id="plusInput">Tambah Produk</button>
 
                         <div class="modal-footer">
                             <button class="btn btn-danger" type="button" data-dismiss="modal">Tutup</button>
