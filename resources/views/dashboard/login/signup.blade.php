@@ -71,6 +71,15 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-md-6 col-xl-4">
                     <div>
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <form class="p-3 p-xl-4" action="{{ route('store_signup') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
@@ -80,7 +89,7 @@
                                 <input class="form-control" type="email" id="emailsignup-1" name="email" placeholder="Email">
                             </div>
                             <div class="mb-3">
-                                <input class="form-control" type="tel" id="numbersignup-1" name="nomor_telepon" placeholder="Nomor Telepon">
+                                <input class="form-control" type="tel" id="numbersignup-1" name="nomor_telepon" value="{{ old('nomor_telepon') }}" placeholder="Nomor Telepon (+62)">
                             </div>
                             <div class="mb-3">
                                 <textarea class="form-control" type="text" id="addresssignup-1" name="alamat" rows="3" placeholder="Alamat Lengkap"></textarea>
@@ -157,7 +166,7 @@
         $("#submit").on("click", function (event) {
             var pass = $("#passsignup-1").val();
             var pass2 = $("#repasssignup-1").val();;
-    
+
             if (pass != pass2) {
                 event.preventDefault();
                 // swal("Password tidak sama !", "", "error");
@@ -167,6 +176,7 @@
                     text: 'Silahkan periksa kembali',
                 })
             }
+
         });
     </script>
         <script src="js/jquery.min.js"></script>
