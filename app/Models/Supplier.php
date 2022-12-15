@@ -19,6 +19,11 @@ class Supplier extends Model
         'alamat',
     ];
 
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
+
     public function produk_supplier(){
         return $this->hasMany('App\Models\ProdukSupplier', 'kode_supplier');
     }
