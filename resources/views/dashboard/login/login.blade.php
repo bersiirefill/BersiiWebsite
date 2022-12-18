@@ -23,6 +23,7 @@
             background-color: #01AA4F;
         } */
     </style>
+    @livewireStyles
 </head>
 
 <body style="/*background: url(&quot;design.jpg&quot;);*/background-position: 0 -60px;">
@@ -69,22 +70,8 @@
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-md-6 col-xl-4">
-                    <div>
-                        <form class="p-3 p-xl-4" method="POST" enctype="multipart/form-data" action="{{ route('login_action') }}">
-                            @csrf
-                            <div class="mb-3"><input class="form-control" type="email" id="emaillogin-1" name="Email" placeholder="Email"></div>
-                            <div class="mb-3"><input class="form-control" type="password" id="passlogin-1" name="Password" placeholder="Kata Sandi"></div>
-                            <div>
-                                <button class="btn btn-primary shadow d-block w-100" type="submit" id="submit" name="submit" style="background: #01AA4F;border-style: none;">Masuk</button>
-                            </div>
-                            <div class="text-right text-opacityf">
-                                <br>
-                                <a href="{{ route('lupa_sandi') }}">
-                                    <p style="text-align: center;">Lupa kata sandi?</p>
-                                </a>
-                            </div>
-                        </form>
-                    </div>
+                    {{-- Livewire --}}
+                    <livewire:login />
                 </div>
             </div>
         </div>
@@ -145,4 +132,5 @@
     <script src="js/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/bold-and-bright.js"></script>
+    @livewireScripts
 </body>

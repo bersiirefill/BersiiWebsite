@@ -47,7 +47,7 @@
                                     <td><span id="nama_toko{{ $data->kode_supplier }}">{{ $data->nama_toko }}</span></td>
                                     <td><span id="alamat{{ $data->kode_supplier }}">{{ $data->alamat }}</span></td>
                                     <td>
-                                        <a class="btn btn-danger btn-sm del" data-kode_supplier="{{ $data->kode_supplier }}" data-nama="{{ $data->nama_toko }}">Hapus</a>
+                                        <button class="btn btn-danger btn-sm del" onclick="deleteItem(this)" data-kode_supplier="{{ $data->kode_supplier }}" data-nama="{{ $data->nama_toko }}">Hapus</button>
                                         <button type="button" class="btn btn-warning btn-sm supedit" value="{{ $data->kode_supplier }}"><span class="glyphicon glyphicon-edit"></span>Ubah</button>
                                     </td>
                                 </tr>  
@@ -102,8 +102,9 @@
                     <h5 class="modal-title">Ubah Supplier</h5>
                 </div>
                 <div class="modal-body">
-                    <form method="POST" action="{{ route('update_supplier') }}" enctype="multipart/form-data">
+                    <form method="POST" action="" enctype="multipart/form-data" id="update1">
                         @csrf
+                        @method('PUT')
                         <div class="mb-3">
                             <label class="form-label">Kode Supplier</label>
                             <input type="text" class="form-control" name="kode_edit" id="kode_edit" value="" readonly>
@@ -147,25 +148,66 @@
         $('#nama_toko_edit').val(nama_toko);
         $('#nomor_telepon_edit').val(nomor_telepon);
         $('#alamat_edit').val(alamat);
+        document.getElementById("update1").action = '{{ route('update_supplier','+kode+') }}';
     });
 </script>    
-<script>
-    $(".del").on("click", function () {
-        var nama = $(this).data('nama');
-        var kode_supplier = $(this).data('kode_supplier');
-        swal({
-            title: "Anda yakin ?",
+
+<script type="application/javascript">
+
+    function deleteItem(e){
+
+        let kode_supplier = e.getAttribute('data-kode_supplier');
+        let nama = e.getAttribute('data-nama');
+
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+        });
+        swalWithBootstrapButtons.fire({
+            title: 'Anda yakin ?',
             text: "Apa anda yakin ingin menghapus supplier \n\"" + nama + "\"",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        }).then((willDelete) => {
-            if (willDelete) {
-                // console.log(kode_supplier);
-                window.location.href = '{{ route('delete_supplier', ['kode_supplier' => $data->kode_supplier??null]) }}';
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Hapus',
+            cancelButtonText: 'Batal',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.value) {
+                if (result.isConfirmed){
+                    $.ajax({
+                        type:'DELETE',
+                        url:'{{url("/delete_supplier")}}/' +kode_supplier,
+                        data:{
+                            "_token": "{{ csrf_token() }}",
+                        },
+                        function() {
+                            swalWithBootstrapButtons.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                "success"
+                            );
+                            $("#rw"+kode_supplier+"").remove(); // you can add name div to remove
+                        }
+                    });
+
+                }
+
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                    'Dibatalkan',
+                    'Pengubahan data dibatalkan',
+                    'error'
+                );
             }
         });
-    })
+
+    }
+
 </script>
 <script>
     // Call the dataTables jQuery plugin

@@ -32,7 +32,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="icon" href="img/satuan.png">
     <style>
         .swal-footer{

@@ -49,18 +49,18 @@ class LoginController extends Controller
     //     }
     // }
 
-    public function login_action(Request $request){
-        $data = [
-            'email' => $request->Email,
-            'password' => $request->Password,
-        ];
-        if(Auth::Attempt($data)){
-            return redirect('dashboard');
-        }else{
-            Session::flash('error', 'Email/Password salah !');
-            return redirect('login');
-        }
-    }
+    // public function login_action(Request $request){
+    //     $data = [
+    //         'email' => $request->Email,
+    //         'password' => $request->Password,
+    //     ];
+    //     if(Auth::Attempt($data)){
+    //         return redirect('dashboard');
+    //     }else{
+    //         Session::flash('error', 'Email/Password salah !');
+    //         return redirect('login');
+    //     }
+    // }
 
     public function logout_action(){
         Session::flush();

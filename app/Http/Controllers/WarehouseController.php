@@ -33,24 +33,24 @@ class WarehouseController extends Controller
         }
     }
 
-    public function delete_supplier(Request $request){
-        $validate = $request->validate([
-            'kode_supplier' => 'required|exists:suppliers,kode_supplier',
-        ]);
-        $delete = Supplier::where('kode_supplier', $request->kode_supplier)->delete();
-        if($delete){
-            return redirect('supplier')->with('success', 'Berhasil menghapus data');
-        }else{
-            return redirect('supplier')->with('error', 'Gagal menghapus data');
-        }
+    public function delete_supplier(Supplier $supplier, $kode_supplier){
+        // $validate = $request->validate([
+        //     'kode_supplier' => 'required|exists:suppliers,kode_supplier',
+        // ]);
+        $delete = Supplier::where('kode_supplier', $kode_supplier)->delete();
+        // if($delete){
+        //     return redirect('supplier')->with('success', 'Berhasil menghapus data');
+        // }else{
+        //     return redirect('supplier')->with('error', 'Gagal menghapus data');
+        // }
     }
 
-    public function update_supplier(Request $request){
+    public function update_supplier(Supplier $supplier, $kode_supplier){
         $validate = $request->validate([
             'kode_edit' => 'required|exists:suppliers,kode_supplier',
         ]);
         $data = $request->all();
-        $edit = Supplier::where('kode_supplier', $request->kode_edit)->update([
+        $edit = Supplier::where('kode_supplier', $kode_supplier)->update([
             'nama_pemilik' => $data['nama_pemilik_edit'],
             'nama_toko' => $data['nama_toko_edit'],
             'nomor_telepon' => $data['nomor_telepon_edit'],

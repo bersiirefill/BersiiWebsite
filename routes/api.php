@@ -15,11 +15,15 @@ use App\Http\Controllers\ApiController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::get('/token', [ApiController::class, 'DefaultUnauthenticated'])->name('token');
+Route::post('/token', [ApiController::class, 'token']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->group(function(){
+    Route::get('/list', [ApiController::class, 'list']);
 });
 
-Route::get('list', [ApiController::class, 'list'])->name('list');
+
+
+
 
 
