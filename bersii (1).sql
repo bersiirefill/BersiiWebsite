@@ -28,11 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admins` (
-  `id_admin` varchar(255) NOT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `nama_admin` varchar(255) DEFAULT NULL,
-  `jabatan` varchar(255) DEFAULT NULL,
+  `id_admin` varchar(191) NOT NULL,
+  `email` varchar(191) DEFAULT NULL,
+  `password` varchar(191) DEFAULT NULL,
+  `nama_admin` varchar(191) DEFAULT NULL,
+  `jabatan` varchar(191) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -45,8 +45,8 @@ CREATE TABLE `admins` (
 
 CREATE TABLE `isi_refill` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `id_produk` varchar(255) NOT NULL,
-  `nomor_seri` varchar(255) NOT NULL,
+  `id_produk` varchar(191) NOT NULL,
+  `nomor_seri` varchar(191) NOT NULL,
   `stok` bigint(20) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -60,8 +60,8 @@ CREATE TABLE `isi_refill` (
 
 CREATE TABLE `jenis_refill_riwayat` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `id_trx` varchar(255) NOT NULL,
-  `id_produk` varchar(255) NOT NULL,
+  `id_trx` varchar(191) NOT NULL,
+  `id_produk` varchar(191) NOT NULL,
   `jumlah` bigint(20) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -75,7 +75,7 @@ CREATE TABLE `jenis_refill_riwayat` (
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) NOT NULL,
+  `migration` varchar(191) NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -104,9 +104,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `personal_access_tokens` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) NOT NULL,
+  `tokenable_type` varchar(191) NOT NULL,
   `tokenable_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(191) NOT NULL,
   `token` varchar(64) NOT NULL,
   `abilities` text DEFAULT NULL,
   `last_used_at` timestamp NULL DEFAULT NULL,
@@ -129,9 +129,9 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 --
 
 CREATE TABLE `produk_supplier` (
-  `id_produk` varchar(255) NOT NULL,
-  `kode_supplier` varchar(255) DEFAULT NULL,
-  `nama_produk` varchar(255) DEFAULT NULL,
+  `id_produk` varchar(191) NOT NULL,
+  `kode_supplier` varchar(191) DEFAULT NULL,
+  `nama_produk` varchar(191) DEFAULT NULL,
   `stok` bigint(20) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -144,11 +144,11 @@ CREATE TABLE `produk_supplier` (
 --
 
 CREATE TABLE `refill_stations` (
-  `nomor_seri` varchar(255) NOT NULL,
-  `latitude` varchar(255) DEFAULT NULL,
-  `longitude` varchar(255) DEFAULT NULL,
+  `nomor_seri` varchar(191) NOT NULL,
+  `latitude` varchar(191) DEFAULT NULL,
+  `longitude` varchar(191) DEFAULT NULL,
   `status_mesin` enum('0','1','2') DEFAULT NULL COMMENT '0=tidak aktif, 1=aktif, 2=maintenance',
-  `alamat` varchar(255) DEFAULT NULL,
+  `alamat` varchar(191) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -160,9 +160,9 @@ CREATE TABLE `refill_stations` (
 --
 
 CREATE TABLE `riwayat_refills` (
-  `id_trx` varchar(255) NOT NULL,
-  `nomor_seri` varchar(255) NOT NULL,
-  `id_user` varchar(255) NOT NULL,
+  `id_trx` varchar(191) NOT NULL,
+  `nomor_seri` varchar(191) NOT NULL,
+  `id_user` varchar(191) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -175,8 +175,8 @@ CREATE TABLE `riwayat_refills` (
 
 CREATE TABLE `riwayat_topup` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `id_user` varchar(255) DEFAULT NULL,
-  `topup_id` varchar(255) DEFAULT NULL,
+  `id_user` varchar(191) DEFAULT NULL,
+  `topup_id` varchar(191) DEFAULT NULL,
   `nominal` decimal(10,2) DEFAULT NULL,
   `tanggal` datetime DEFAULT NULL,
   `payment_status` enum('1','2','3') DEFAULT NULL COMMENT '1=menunggu pembayaran, 2=sudah dibayar, 3=kadaluarsa',
@@ -192,11 +192,11 @@ CREATE TABLE `riwayat_topup` (
 --
 
 CREATE TABLE `suppliers` (
-  `kode_supplier` varchar(255) NOT NULL,
-  `nama_pemilik` varchar(255) DEFAULT NULL,
-  `nama_toko` varchar(255) DEFAULT NULL,
-  `nomor_telepon` varchar(255) DEFAULT NULL,
-  `alamat` varchar(255) DEFAULT NULL,
+  `kode_supplier` varchar(191) NOT NULL,
+  `nama_pemilik` varchar(191) DEFAULT NULL,
+  `nama_toko` varchar(191) DEFAULT NULL,
+  `nomor_telepon` varchar(191) DEFAULT NULL,
+  `alamat` varchar(191) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -216,12 +216,12 @@ INSERT INTO `suppliers` (`kode_supplier`, `nama_pemilik`, `nama_toko`, `nomor_te
 --
 
 CREATE TABLE `users_bersiis` (
-  `id` varchar(255) NOT NULL,
-  `nama` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `nomor_telepon` varchar(255) DEFAULT NULL,
-  `alamat` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
+  `id` varchar(191) NOT NULL,
+  `nama` varchar(191) DEFAULT NULL,
+  `email` varchar(191) DEFAULT NULL,
+  `nomor_telepon` varchar(191) DEFAULT NULL,
+  `alamat` varchar(191) DEFAULT NULL,
+  `password` varchar(191) DEFAULT NULL,
   `forgot_token` int(11) DEFAULT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -246,7 +246,7 @@ INSERT INTO `users_bersiis` (`id`, `nama`, `email`, `nomor_telepon`, `alamat`, `
 --
 
 CREATE TABLE `wallet` (
-  `id` varchar(255) NOT NULL,
+  `id` varchar(191) NOT NULL,
   `saldo` decimal(10,2) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
