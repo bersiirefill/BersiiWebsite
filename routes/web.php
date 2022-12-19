@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function(){
     // Supplier
     Route::get('supplier', [DashboardController::class, 'supplier'])->name('supplier');
     Route::post('save_supplier', [WarehouseController::class, 'new_supplier'])->name('save_supplier');
-    Route::put('update_supplier/{kode_supplier}', [WarehouseController::class, 'update_supplier'])->name('update_supplier');
+    Route::put('update_supplier', [WarehouseController::class, 'update_supplier'])->name('update_supplier');
     Route::delete('delete_supplier/{kode_supplier}', [WarehouseController::class, 'delete_supplier'])->name('delete_supplier');
     // Produk Supplier
     Route::get('produk_supplier', [DashboardController::class, 'daftar_produk'])->name('produk_supplier');
