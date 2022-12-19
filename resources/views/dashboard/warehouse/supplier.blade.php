@@ -102,7 +102,7 @@
                     <h5 class="modal-title">Ubah Supplier</h5>
                 </div>
                 <div class="modal-body">
-                    <form method="POST" action="" enctype="multipart/form-data" id="update1">
+                    <form method="POST" action="{{ route('update_supplier') }}" enctype="multipart/form-data" id="update1">
                         @csrf
                         @method('PUT')
                         <div class="mb-3">
@@ -148,7 +148,7 @@
         $('#nama_toko_edit').val(nama_toko);
         $('#nomor_telepon_edit').val(nomor_telepon);
         $('#alamat_edit').val(alamat);
-        document.getElementById("update1").action = '{{ route('update_supplier','+kode+') }}';
+        // document.getElementById("update1").action = '{{ route('update_supplier','+kode+') }}';
     });
 </script>    
 
@@ -183,13 +183,8 @@
                         data:{
                             "_token": "{{ csrf_token() }}",
                         },
-                        function() {
-                            swalWithBootstrapButtons.fire(
-                                'Deleted!',
-                                'Your file has been deleted.',
-                                "success"
-                            );
-                            $("#rw"+kode_supplier+"").remove(); // you can add name div to remove
+                        success:function(data) {
+                            window.location.href = "{{ route('supplier') }}"
                         }
                     });
 

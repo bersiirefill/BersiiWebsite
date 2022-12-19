@@ -45,12 +45,12 @@ class WarehouseController extends Controller
         // }
     }
 
-    public function update_supplier(Supplier $supplier, $kode_supplier){
+    public function update_supplier(Supplier $supplier, Request $request){
         $validate = $request->validate([
             'kode_edit' => 'required|exists:suppliers,kode_supplier',
         ]);
         $data = $request->all();
-        $edit = Supplier::where('kode_supplier', $kode_supplier)->update([
+        $edit = Supplier::where('kode_supplier', $request->kode_edit)->update([
             'nama_pemilik' => $data['nama_pemilik_edit'],
             'nama_toko' => $data['nama_toko_edit'],
             'nomor_telepon' => $data['nomor_telepon_edit'],
