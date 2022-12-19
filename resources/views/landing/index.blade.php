@@ -236,7 +236,7 @@
 <!-- Begin Mailchimp Signup Form -->
 <link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet" type="text/css">
 <style type="text/css">
-	#mc_embed_signup{background: #fff; clear: right;; font:16px Inter,Helvetica,Arial,sans-serif;  width:600px;}
+	#mc_embed_signup{clear: right;; font:16px Inter,Helvetica,Arial,sans-serif;  width:600px;}
 	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
 	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
 </style>
@@ -249,7 +249,7 @@
 	<label for="mce-EMAIL">
 </label>
 	<input type="email" value="" name="EMAIL" class="required email border rounded-pill shadow-sm" id="mce-EMAIL" placeholder="Email Kamu" required>
-	<span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
+	{{-- <span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span> --}}
 </div>
 	<div id="mce-responses" class="clear foot">
 		<div class="response" id="mce-error-response" style="display:none"></div>
