@@ -23,7 +23,7 @@ class AdminSeeder extends Seeder
             'id_admin' => $rand1,
             'email' => 'bersiirefill@gmail.com',
             'password' => Hash::make('sunibngalam'),
-            'nama_admin' => 'Admin Bersii',
+            'nama' => 'Admin Bersii',
             'jabatan' => 'Administrator',
             'created_at' => now(),
             'updated_at' => now()
