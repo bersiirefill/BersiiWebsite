@@ -13,15 +13,14 @@ class Login extends Component
 
     public function login()
     {
+
         if(is_null($this->Email) || is_null($this->Password)){
             Session::flash('error', 'Email/Password harus diisi !');
         }
 
-        // dd($this->Email, $this->Password);
-
-        if (Auth::guard('admin')->attempt(['email' => $this->Email, 'password'=> $this->Password])) {
+        if(Auth::attempt(['email' => $this->Email, 'password'=> $this->Password])) {
             return redirect('dashboard');
-        }else{
+        } else {
             Session::flash('error', 'Email/Password salah !');
             return redirect('login');
         }

@@ -164,24 +164,6 @@
     });
 </script>    
 <script>
-    $(".del").on("click", function () {
-        var nama = $(this).data('nama');
-        var kode_supplier = $(this).data('kode_supplier');
-        swal({
-            title: "Anda yakin ?",
-            text: "Apa anda yakin ingin menghapus supplier \n\"" + nama + "\"",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        }).then((willDelete) => {
-            if (willDelete) {
-                // console.log(kode_supplier);
-                window.location.href = '{{ route('delete_supplier', ['kode_supplier' => $data->kode_supplier??null]) }}';
-            }
-        });
-    })
-</script>
-<script>
     // Call the dataTables jQuery plugin
     $(document).ready(function() {
         $('#dataTable').DataTable({

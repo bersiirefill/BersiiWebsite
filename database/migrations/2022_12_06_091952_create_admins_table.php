@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('id_admin')->primary();
             $table->string('email')->nullable();
             $table->string('password')->nullable();
-            $table->string('nama_admin')->nullable();
+            $table->string('nama')->nullable();
             $table->string('jabatan')->nullable();
             $table->timestamps();
         });
