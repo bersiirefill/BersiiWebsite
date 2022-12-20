@@ -1,12 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Supplier;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
-class TokenRequestController extends Controller
+class ApiController extends Controller
 {
-    //
+
     public function DefaultUnauthenticated()
     {
         return response()->json([
@@ -41,4 +45,16 @@ class TokenRequestController extends Controller
             'token' => $token
         ]);
     }
+
+    public function list(){
+        $suppliers = Supplier::get();
+        return response()->json([
+            'status' => 'success',
+            'message'=> 'supplier list',
+            'data' => $suppliers
+        ], 200);
+    }
+
+    
+
 }
