@@ -31,7 +31,6 @@ Route::post('store_verifikasi', [LoginController::class, 'store_verifikasi'])->n
 Route::post('store_forgot', [LoginController::class, 'store_forgot_password'])->name('store_forgot');
 Route::post('store_signup', [LoginController::class, 'store_signup'])->name('store_signup');
 // Route::post('login_action', [LoginController::class, 'login_action'])->name('login_action');
-
 Route::post('login_action_forgot', [LoginController::class, 'login_action_forgot'])->name('login_action_forgot');
 
 Route::middleware('auth')->group(function(){

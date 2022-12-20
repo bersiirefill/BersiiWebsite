@@ -57,7 +57,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav mx-auto">
-                </ul><a class="btn btn-primary shadow" role="button" href="{{ route('login') }}" style="background: #01AA4F;border-style: none;">Masuk</a>
+                </ul>
+                {{-- <a class="btn btn-primary shadow" role="button" href="{{ route('login') }}" style="background: #01AA4F;border-style: none;">Masuk</a> --}}
             </div>
         </div>
     </nav>
@@ -94,12 +95,12 @@
                             <div class="mb-3">
                                 <textarea class="form-control" type="text" id="addresssignup-1" name="alamat" rows="3" placeholder="Alamat Lengkap"></textarea>
                             </div>
-                            <div class="mb-3">
+                            {{-- <div class="mb-3">
                                 <input class="form-control" type="password" id="passsignup-1" name="password" placeholder="Kata Sandi">
                             </div>
                             <div class="mb-3">
                                 <input class="form-control" type="password" id="repasssignup-1" name="repassword" placeholder="Konfirmasi Kata Sandi">
-                            </div>
+                            </div> --}}
                             <div>
                                 <button class="btn btn-primary shadow d-block w-100" type="submit" id="submit" name="submit" style="background: #01AA4F;border-style: none;">Daftar</button>
                             </div>

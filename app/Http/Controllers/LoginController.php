@@ -71,33 +71,37 @@ class LoginController extends Controller
 
     public function store_signup(Request $request){
         $request->validate([
-            'nama' => 'required|min:5|unique:users_bersiis',
-            'email' =>'required|min:5|email|unique:users_bersiis',
-            'nomor_telepon' =>'required|min:5|unique:users_bersiis',
+            'nama' => 'required|min:5',
+            'email' =>'required|min:5|email',
+            'nomor_telepon' =>'required|min:5',
             'alamat' =>'required|min:5',
-            'password' =>'required|min:5',
         ]);
         $data = $request->all();
-        $rnd = rand(100000,1000000);
-        $create = User::create([
-            'id' => 'BRS-'.$rnd.'',
-            'nama' => $data['nama'],
-            'email' => $data['email'],
-            'nomor_telepon' => $data['nomor_telepon'],
-            'alamat' => $data['alamat'],
-            'password' => Hash::make($data['password']),
-        ]);
-        $create = Wallet::create([
-            'id' => 'BRS-'.$rnd.'',
-            'saldo' => 0
-        ]);
-        if($create){
-            Session::flash('success', 'Berhasil mendaftar !');
-            return redirect('daftar');
-        }else{
-            Session::flash('error', 'Pendaftaran gagal !');
-            return redirect('daftar');
-        }
+        $nama = $data['nama'];
+        $email = $data['email'];
+        $nomor_telepon = $data['nomor_telepon'];
+        $alamat = $data['alamat'];
+        return redirect()->away('https://wa.me/6281344847038?text=Perkenalkan%20nama%20saya%20'.$nama.'%2C%20saya%20hendak%20bekerja%20sama%20dengan%20Bersii.%20Berikut%20kontak%20saya%0A%0AEmail%20%3A%20'.$email.'%0ANomor%20Telepon%20%3A%20'.$nomor_telepon.'%0AAlamat%20%3A%20'.$alamat.'%0A%0AMohon%20kiranya%20berkenan%20untuk%20bisa%20bekerja%20sama.%20Terima%20kasih');
+        // $rnd = rand(100000,1000000);
+        // $create = User::create([
+        //     'id' => 'BRS-'.$rnd.'',
+        //     'nama' => $data['nama'],
+        //     'email' => $data['email'],
+        //     'nomor_telepon' => $data['nomor_telepon'],
+        //     'alamat' => $data['alamat'],
+        //     'password' => Hash::make($data['password']),
+        // ]);
+        // $create = Wallet::create([
+        //     'id' => 'BRS-'.$rnd.'',
+        //     'saldo' => 0
+        // ]);
+        // if($create){
+        //     Session::flash('success', 'Berhasil mendaftar !');
+        //     return redirect('daftar');
+        // }else{
+        //     Session::flash('error', 'Pendaftaran gagal !');
+        //     return redirect('daftar');
+        // }
     }
 
     public function store_forgot_password(Request $request){
