@@ -28,6 +28,6 @@ class SupportMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Pemulihan Kata Sandi')->view('email.support');
+        return $this->subject('Pemulihan Password')->view('email.support');
     }
 }

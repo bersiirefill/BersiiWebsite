@@ -96,10 +96,10 @@
                                 <textarea class="form-control" type="text" id="addresssignup-1" name="alamat" rows="3" placeholder="Alamat Lengkap"></textarea>
                             </div>
                             {{-- <div class="mb-3">
-                                <input class="form-control" type="password" id="passsignup-1" name="password" placeholder="Kata Sandi">
+                                <input class="form-control" type="password" id="passsignup-1" name="password" placeholder="Password">
                             </div>
                             <div class="mb-3">
-                                <input class="form-control" type="password" id="repasssignup-1" name="repassword" placeholder="Konfirmasi Kata Sandi">
+                                <input class="form-control" type="password" id="repasssignup-1" name="repassword" placeholder="Konfirmasi Password">
                             </div> --}}
                             <div>
                                 <button class="btn btn-primary shadow d-block w-100" type="submit" id="submit" name="submit" style="background: #01AA4F;border-style: none;">Daftar</button>

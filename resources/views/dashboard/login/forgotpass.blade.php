@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Lupa Kata Sandi - Bersii</title>
+    <title>Lupa Password - Bersii</title>
     <meta name="theme-color" content="#e9f5db">
     <link rel="icon" type="image/svg+xml" sizes="271x259" href="img/just%20bersii%20logo.svg">
     <link rel="icon" type="image/svg+xml" sizes="271x259" href="img/just%20bersii%20logo.svg">
@@ -33,7 +33,7 @@
         <div class="container">
             <div class="row mb-3">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
-                    <h2 class="fw-bold">Lupa Kata Sandi</h2>
+                    <h2 class="fw-bold">Lupa Password</h2>
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
@@ -45,7 +45,7 @@
                                 <input class="form-control" type="email" id="email" name="email" placeholder="Email" required>
                             </div>
                             <div>
-                                <button class="btn btn-primary shadow d-block w-100" type="submit" id="submit" name="submit" style="background: #01AA4F;border-style: none;">Pulihkan Kata Sandi</button>
+                                <button class="btn btn-primary shadow d-block w-100" type="submit" id="submit" name="submit" style="background: #01AA4F;border-style: none;">Pulihkan Password</button>
                             </div>
                         </form>
                     </div>

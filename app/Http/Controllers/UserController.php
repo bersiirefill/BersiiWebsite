@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Admin;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+// Pakai Mail Controller
+use App\Http\Controllers\MailController;
 
 class UserController extends Controller
 {
@@ -51,6 +55,26 @@ class UserController extends Controller
             return redirect('administrator')->with('success', 'Berhasil mengubah data');
         }else{
             return redirect('administrator')->with('error', 'Gagal mengubah data');
+        }
+    }
+
+    public function delete_pengguna(User $user, $id){
+        $delete = User::where('id', $id)->delete();
+    }
+
+    public function reset_pengguna(User $user, $id){
+        $rand1 = rand(100000,1000000);
+        User::where('id', $id)->update([
+            'forgot_token' => $rand1,
+        ]);
+        // Ambil nama
+        $sch_name = DB::table('users_bersiis')
+        ->select('nama', 'email')
+        ->where('id', '=', $id)->first();
+        // Kirim
+        $snd = MailController::index($sch_name->name, $sch_name->email, $rand1);
+        if($snd == true){
+            return redirect()->route('verifikasi_kode', ['email' => $sch_name->email]);
         }
     }
 }

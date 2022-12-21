@@ -65,6 +65,18 @@
                 });
             }, 1000);
         </script>
+    @elseif(session('info'))
+        <script type="text/javascript">
+            setTimeout(function() {
+                swal({
+                    icon: "info",
+                    title: "Perhatian",
+                    text: '{{ session('info') }}'
+                }, function() {
+                    window.location = "redirectURL";
+                });
+            }, 1000);
+        </script>
     @endif
     <!-- Page Wrapper -->
     <div id="wrapper">

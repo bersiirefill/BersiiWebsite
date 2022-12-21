@@ -11,8 +11,8 @@ class MailController extends Controller
     public static function index($nama, $email, $kode)
     {
         $mailData = [
-            'title' => 'Anda telah mengajukan pemulihan kata sandi',
-            'body' => 'Halo '.$nama.', kode verifikasi pemulihan kata sandi anda adalah '.$kode.''
+            'title' => 'Anda telah mengajukan pemulihan password',
+            'body' => 'Halo '.$nama.', kode verifikasi pemulihan password anda adalah '.$kode.''
         ];
         Mail::to($email)->send(new SupportMail($mailData));
         // dd("Email is sent successfully.");

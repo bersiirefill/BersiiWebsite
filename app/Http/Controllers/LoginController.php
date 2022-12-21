@@ -54,7 +54,14 @@ class LoginController extends Controller
             'email' => $request->Email,
             'password' => $request->Password,
         ];
+        $eml = $data['email'];
         if(Auth::Attempt($data)){
+            $checkrst = DB::table('users_bersiis')
+            ->select('nama')
+            ->where('email', '=', $eml)->count();
+            if($checkrst > 0){
+                Session::flash('info', 'Anda telah meminta pemulihan password sebelumnya. Segera ubah password Anda');
+            }
             return redirect('dashboard');
         }else{
             Session::flash('error', 'Email/Password salah !');
@@ -134,7 +141,7 @@ class LoginController extends Controller
             User::where('email', $request->email)->update([
                 'forgot_token' => NULL,
             ]);
-            Session::flash('success', 'Harap segera melakukan perubahan kata sandi Anda !');
+            Session::flash('success', 'Harap segera melakukan perubahan password Anda !');
             return redirect('dashboard');
         }else{
             Session::flash('error', 'Kode verifikasi salah/tidak berlaku !');

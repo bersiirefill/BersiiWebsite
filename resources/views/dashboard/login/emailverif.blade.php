@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Verifikasi Pemulihan Kata Sandi - Bersii</title>
+    <title>Verifikasi Pemulihan Password - Bersii</title>
     <meta name="theme-color" content="#e9f5db">
     <link rel="icon" type="image/svg+xml" sizes="271x259" href="img/just%20bersii%20logo.svg">
     <link rel="icon" type="image/svg+xml" sizes="271x259" href="img/just%20bersii%20logo.svg">

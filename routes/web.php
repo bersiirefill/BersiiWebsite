@@ -49,6 +49,10 @@ Route::middleware('auth')->group(function(){
     Route::post('save_admin', [UserController::class, 'new_admin'])->name('save_admin');
     Route::put('update_admin', [UserController::class, 'update_admin'])->name('update_admin');
     Route::delete('delete_admin/{id_admin}', [UserController::class, 'delete_admin'])->name('delete_admin');
+    // User
+    Route::get('pengguna', [DashboardController::class, 'daftar_pengguna'])->name('pengguna');
+    Route::put('reset_pengguna/{id}', [UserController::class, 'reset_pengguna'])->name('reset_pengguna');
+    Route::delete('delete_pengguna/{id}', [UserController::class, 'delete_pengguna'])->name('delete_pengguna');
     // Logout
     Route::get('logout_action', [LoginController::class, 'logout_action'])->name('logout_action');
 });

@@ -40,4 +40,9 @@ class DashboardController extends Controller
         return view('dashboard.administration.administrator', compact('admin'));
     }
 
+    public function daftar_pengguna(){
+        $pengguna = User::all();
+        return view('dashboard.administration.user', compact('pengguna'));
+    }
+
 }
