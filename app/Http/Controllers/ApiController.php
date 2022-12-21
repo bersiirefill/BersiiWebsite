@@ -24,7 +24,7 @@ class ApiController extends Controller
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
-            'device_name' => 'required',
+            // 'device_name' => 'required',
         ]);
 
         $user = User::where('email', $request->email)->first();
@@ -35,15 +35,32 @@ class ApiController extends Controller
             ]);
         }
         // $user->tokens()->delete();
-        $token = $user->createToken($request->device_name)->plainTextToken;
-        return response()->json([
+        $token = $user->createToken($request->email)->plainTextToken;
+        header("HTTP/ 200");
+        header('Content-Type: application/json');
+        $array[] = array(
+            'status' => 1,
+            'message' => 'Sukses',
             'id' => $user->id,
             'nama' => $user->nama,
             'email' => $user->email,
             'nomor_telepon' => $user->nomor_telepon,
             'alamat' => $user->alamat,
             'token' => $token
-        ]);
+        );
+        echo json_encode($array);
+        // return response()->json([
+        //     'status' => 1,
+        //     'message' => 'Sukses',
+        //     'data' => [
+        //         'id' => $user->id,
+        //         'nama' => $user->nama,
+        //         'email' => $user->email,
+        //         'nomor_telepon' => $user->nomor_telepon,
+        //         'alamat' => $user->alamat,
+        //         'token' => $token
+        //     ]
+        // ], 200);
     }
 
     public function list(){
