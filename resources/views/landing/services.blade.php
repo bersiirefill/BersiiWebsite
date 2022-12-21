@@ -26,7 +26,7 @@
                     <li class="nav-item"><a class="nav-link  active" href="{{ route('services')}}">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('contacts')}}">Contacts</a></li>
                 </ul><a class="btn btn-primary shadow" role="button" href="{{ route('daftar') }}" style="background: #01AA4F;border-style: none;">Daftar</a>
-            </div>5
+            </div>
         </div>
     </nav>
     <section class="py-5">
