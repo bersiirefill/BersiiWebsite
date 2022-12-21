@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 use App\Http\Livewire\Login;
 use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
@@ -30,7 +31,7 @@ Route::get('verifikasi_kode', [LoginController::class, 'verifikasi_kode'])->name
 Route::post('store_verifikasi', [LoginController::class, 'store_verifikasi'])->name('store_verifikasi');
 Route::post('store_forgot', [LoginController::class, 'store_forgot_password'])->name('store_forgot');
 Route::post('store_signup', [LoginController::class, 'store_signup'])->name('store_signup');
-// Route::post('login_action', [LoginController::class, 'login_action'])->name('login_action');
+Route::post('login_action', [LoginController::class, 'login_action'])->name('login_action');
 Route::post('login_action_forgot', [LoginController::class, 'login_action_forgot'])->name('login_action_forgot');
 
 Route::middleware('auth')->group(function(){
@@ -43,6 +44,11 @@ Route::middleware('auth')->group(function(){
     // Produk Supplier
     Route::get('produk_supplier', [DashboardController::class, 'daftar_produk'])->name('produk_supplier');
     Route::post('save_produk', [WarehouseController::class, 'new_product'])->name('save_produk');
+    // Administration
+    Route::get('administrator', [DashboardController::class, 'daftar_administrator'])->name('administrator');
+    Route::post('save_admin', [UserController::class, 'new_admin'])->name('save_admin');
+    Route::put('update_admin', [UserController::class, 'update_admin'])->name('update_admin');
+    Route::delete('delete_admin/{id_admin}', [UserController::class, 'delete_admin'])->name('delete_admin');
     // Logout
     Route::get('logout_action', [LoginController::class, 'logout_action'])->name('logout_action');
 });

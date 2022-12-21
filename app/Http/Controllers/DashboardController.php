@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use App\Models\Admin;
 use App\Models\Station;
 use App\Models\Supplier;
 use App\Models\ProdukSupplier;
@@ -33,4 +34,10 @@ class DashboardController extends Controller
         $supplier = Supplier::all();
         return view('dashboard.warehouse.produk', compact('daftar', 'supplier'));
     }
+
+    public function daftar_administrator(){
+        $admin = Admin::all();
+        return view('dashboard.administration.administrator', compact('admin'));
+    }
+
 }
