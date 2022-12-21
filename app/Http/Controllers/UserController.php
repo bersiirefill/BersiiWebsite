@@ -72,9 +72,9 @@ class UserController extends Controller
         ->select('nama', 'email')
         ->where('id', '=', $id)->first();
         // Kirim
-        $snd = MailController::index($sch_name->name, $sch_name->email, $rand1);
+        $snd = MailController::index($sch_name->nama, $sch_name->email, $rand1);
         if($snd == true){
-            return redirect()->route('verifikasi_kode', ['email' => $sch_name->email]);
+            return redirect()->route('pengguna');
         }
     }
 }

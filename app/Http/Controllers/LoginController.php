@@ -57,7 +57,7 @@ class LoginController extends Controller
         $eml = $data['email'];
         if(Auth::Attempt($data)){
             $checkrst = DB::table('users_bersiis')
-            ->select('nama')
+            ->select('forgot_token')
             ->where('email', '=', $eml)->count();
             if($checkrst > 0){
                 Session::flash('info', 'Anda telah meminta pemulihan password sebelumnya. Segera ubah password Anda');

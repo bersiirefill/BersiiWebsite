@@ -41,7 +41,10 @@ class DashboardController extends Controller
     }
 
     public function daftar_pengguna(){
-        $pengguna = User::all();
+        $pengguna = DB::table('users_bersiis')
+        ->join('wallet', 'users_bersiis.id', '=', 'wallet.id')
+        ->select('users_bersiis.*', 'wallet.saldo')
+        ->get();
         return view('dashboard.administration.user', compact('pengguna'));
     }
 
