@@ -37,7 +37,7 @@
                         <div style="max-width: 450px;">
                             <p class="fw-bold text-success mb-2">Special Offer</p>
                             <h2 class="fw-bold">The best solution for<br>you and your<br>customers</h2>
-                            <p class="my-3">Dictumst magna ultricies justo auctor. Gravida morbi etiam id, magna lacinia augue.</p><button class="btn btn-primary" type="button" style="background: #01AA4F;border-style: none;">Learn more</button>
+                            <p class="my-3">We offer you some solution to reduce plastic waste with refill material such as Soap, Shampoo, Detergent, and Cooking Oil.</p><button class="btn btn-primary" type="button" style="background: #01AA4F;border-style: none;">Learn more</button>
                         </div>
                     </div>
                     <div class="col-md-6 ml-10 mb-4">
@@ -88,32 +88,32 @@
                     <div class="col mb-5">
                         <div class="card shadow-sm">
                             <div class="card-body px-4 py-5 px-md-5">
-                                <h5 class="fw-bold card-title">Lorem ipsum dolor sit&nbsp;</h5>
-                                <p class="text-muted card-text mb-4">Erat netus est hendrerit, nullam et quis ad cras porttitor iaculis. Bibendum vulputate cras aenean.</p><button class="btn btn-primary shadow" type="button" style="background: #01AA4F;border-style: none;">Learn more</button>
+                                <h5 class="fw-bold card-title"> Bersii Refill Station&nbsp;</h5>
+                                <p class="text-muted card-text mb-4">You can refill your household needs such as Soap, Shampoo, Detegent, and Cooking Oil without producing plastic waste.</p><button class="btn btn-primary shadow" type="button" style="background: #01AA4F;border-style: none;">Learn more</button>
                             </div>
                         </div>
                     </div>
                     <div class="col mb-5">
                         <div class="card shadow-sm">
                             <div class="card-body px-4 py-5 px-md-5">
-                                <h5 class="fw-bold card-title">Lorem ipsum dolor sit&nbsp;</h5>
-                                <p class="text-muted card-text mb-4">Erat netus est hendrerit, nullam et quis ad cras porttitor iaculis. Bibendum vulputate cras aenean.</p><button class="btn btn-primary shadow" type="button" style="background: #01AA4F;border-style: none;">Learn more</button>
+                                <h5 class="fw-bold card-title">Bersii Mobile Application&nbsp;</h5>
+                                <p class="text-muted card-text mb-4">We offer you a Mobile Application to fulfill our customers needs and fulfill the satisfaction to enjoy our apps.</p><button class="btn btn-primary shadow" type="button" style="background: #01AA4F;border-style: none;">Learn more</button>
                             </div>
                         </div>
                     </div>
                     <div class="col mb-4">
                         <div class="card shadow-sm">
                             <div class="card-body px-4 py-5 px-md-5">
-                                <h5 class="fw-bold card-title">Lorem ipsum dolor sit&nbsp;</h5>
-                                <p class="text-muted card-text mb-4">Erat netus est hendrerit, nullam et quis ad cras porttitor iaculis. Bibendum vulputate cras aenean.</p><button class="btn btn-primary shadow" type="button" style="background: #01AA4F;border-style: none;">Learn more</button>
+                                <h5 class="fw-bold card-title">Bersii Driver&nbsp;</h5>
+                                <p class="text-muted card-text mb-4">Our Driver will always be ready to serve your needs for household needs. Our Driver will bring your products to you without leaving your neighbourhood.</p><button class="btn btn-primary shadow" type="button" style="background: #01AA4F;border-style: none;">Learn more</button>
                             </div>
                         </div>
                     </div>
                     <div class="col mb-4">
                         <div class="card shadow-sm">
                             <div class="card-body px-4 py-5 px-md-5">
-                                <h5 class="fw-bold card-title">Lorem ipsum dolor sit&nbsp;</h5>
-                                <p class="text-muted card-text mb-4">Erat netus est hendrerit, nullam et quis ad cras porttitor iaculis. Bibendum vulputate cras aenean.</p><button class="btn btn-primary shadow" type="button" style="background: #01AA4F;border-style: none;">Learn more</button>
+                                <h5 class="fw-bold card-title">Bersii Supplier&nbsp;</h5>
+                                <p class="text-muted card-text mb-4">You can as our supplier to form our relationship with you and our potential suppliers to build an economy that supports eco green systems.</p><button class="btn btn-primary shadow" type="button" style="background: #01AA4F;border-style: none;">Learn more</button>
                             </div>
                         </div>
                     </div>
@@ -134,33 +134,33 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 d-sm-flex justify-content-sm-center">
                 <div class="col mb-4">
                     <div class="d-flex flex-column align-items-center align-items-sm-start">
-                        <p class="bg-light border rounded border-light p-4">Nisi sit justo faucibus nec ornare amet, tortor torquent. Blandit class dapibus, aliquet morbi.</p>
+                        <p class="bg-light border rounded border-light p-4">"Menjadi seorang Influencer merupakan panutan bagi orang terutama hal kebersihan. Saya dapat menjaga kebersihan saya dan tempat tinggal saya tanpa memproduksi limbah plastik berkat Bersii."</p>
                         <div class="d-flex"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="50" height="50" src="{{ asset('img/team/avatar2.jpg') }}">
                             <div>
-                                <p class="fw-bold text-primary mb-0" style="--bs-primary: #01AA4F;--bs-primary-rgb: 1,170,79;">John Smith</p>
-                                <p class="text-muted mb-0">Erat netus</p>
+                                <p class="fw-bold text-primary mb-0" style="--bs-primary: #01AA4F;--bs-primary-rgb: 1,170,79;">Nina</p>
+                                <p class="text-muted mb-0">Influencer</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col mb-4">
                     <div class="d-flex flex-column align-items-center align-items-sm-start">
-                        <p class="bg-light border rounded border-light p-4">Nisi sit justo faucibus nec ornare amet, tortor torquent. Blandit class dapibus, aliquet morbi.</p>
+                        <p class="bg-light border rounded border-light p-4">"Saya seringkali malas untuk bepergian jauh hanya untuk membeli keperluan seperti sabun dan sampo. Bersii memecahkan masalah saya dan mendatangkan Refill Station di dekat Dormitory yang saya tinggali."</p>
                         <div class="d-flex"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="50" height="50" src="{{ asset('img/team/avatar4.jpg') }}">
                             <div>
-                                <p class="fw-bold text-primary mb-0" style="--bs-primary: #01AA4F;--bs-primary-rgb: 1,170,79;">John Smith</p>
-                                <p class="text-muted mb-0">Erat netus</p>
+                                <p class="fw-bold text-primary mb-0" style="--bs-primary: #01AA4F;--bs-primary-rgb: 1,170,79;">Jonathan</p>
+                                <p class="text-muted mb-0">Mahasiswa</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col mb-4">
                     <div class="d-flex flex-column align-items-center align-items-sm-start">
-                        <p class="bg-light border rounded border-light p-4">Nisi sit justo faucibus nec ornare amet, tortor torquent. Blandit class dapibus, aliquet morbi.</p>
+                        <p class="bg-light border rounded border-light p-4">"Saya dapat mengurangi limbah rumah tangga berupa plastik dengan menggunakan layanan Bersii. Dengan adanya Bersii, saya dapat memenuhi kebutuhan rumah tangga tanpa perlu pergi ke supermarket terdekat."</p>
                         <div class="d-flex"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="50" height="50" src="{{ asset('img/team/avatar5.jpg') }}">
                             <div>
-                                <p class="fw-bold text-primary mb-0" style="--bs-primary: #01AA4F;--bs-primary-rgb: 1,170,79;">John Smith</p>
-                                <p class="text-muted mb-0">Erat netus</p>
+                                <p class="fw-bold text-primary mb-0" style="--bs-primary: #01AA4F;--bs-primary-rgb: 1,170,79;">Zara</p>
+                                <p class="text-muted mb-0">Housewife</p>
                             </div>
                         </div>
                     </div>
@@ -301,7 +301,7 @@
                 </div>
                 <div class="col-lg-3 text-center text-lg-start d-flex flex-column align-items-center order-first align-items-lg-start order-lg-last item social">
                     <div class="fw-bold d-flex align-items-center mb-2"><span>                <img src="img/horizontal.png" style="max-height: 35px"></span></div>
-                    <p class="text-muted copyright">Sem eleifend donec molestie, integer quisque orci aliquam.</p>
+                    <p class="text-muted copyright">Solusi Ngecer Tanpa Plastik.</p>
                 </div>
             </div>
             <hr>
