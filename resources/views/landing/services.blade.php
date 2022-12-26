@@ -38,29 +38,29 @@
                 </div>
             </div>
             <div class="row row-cols-1 row-cols-md-2 mx-auto" style="max-width: 900px;">
-                <div class="col mb-5"><img class="rounded img-fluid shadow" src="img/products/1.jpg"></div>
+                <div class="col mb-5"><img class="rounded img-fluid shadow" src="img/products/Refill-Station.png"></div>
                 <div class="col d-md-flex align-items-md-end align-items-lg-center mb-5">
                     <div>
-                        <h5 class="fw-bold">Lorem ipsum dolor sit&nbsp;</h5>
-                        <p class="text-muted mb-4">Erat netus est hendrerit, nullam et quis ad cras porttitor iaculis. Bibendum vulputate cras aenean.</p><button class="btn btn-primary shadow" type="button" style="background: #01AA4F;border-style: none;">Learn more</button>
+                        <h5 class="fw-bold">Bersii Refill Station&nbsp;</h5>
+                        <p class="text-muted mb-4">Bersi Refill Station can offer our services to you, Our beloved customers. You can refill your Soap, Shampoo, Detegent, and Cooking Oil with this Refill Station which have been scattered in several places.</p><button class="btn btn-primary shadow" type="button" style="background: #01AA4F;border-style: none;">Learn more</button>
                     </div>
                 </div>
             </div>
             <div class="row row-cols-1 row-cols-md-2 mx-auto" style="max-width: 900px;">
-                <div class="col order-md-last mb-5"><img class="rounded img-fluid shadow" src="img/products/2.jpg"></div>
+                <div class="col order-md-last mb-5"><img class="rounded img-fluid shadow" src="img/products/Bersii-Mobile-Apps.png"></div>
                 <div class="col d-md-flex align-items-md-end align-items-lg-center mb-5">
                     <div>
-                        <h5 class="fw-bold">Lorem ipsum dolor sit&nbsp;</h5>
-                        <p class="text-muted mb-4">Erat netus est hendrerit, nullam et quis ad cras porttitor iaculis. Bibendum vulputate cras aenean.</p><button class="btn btn-primary shadow" type="button" style="background: #01AA4F;border-style: none;">Learn more</button>
+                        <h5 class="fw-bold">Bersii Mobile App&nbsp;</h5>
+                        <p class="text-muted mb-4">We offer some other detail services in our Mobile Application for Smartphone Users.</p><button class="btn btn-primary shadow" type="button" style="background: #01AA4F;border-style: none;">Learn more</button>
                     </div>
                 </div>
             </div>
             <div class="row row-cols-1 row-cols-md-2 mx-auto" style="max-width: 900px;">
-                <div class="col mb-5"><img class="rounded img-fluid shadow" src="img/products/3.jpg"></div>
+                <div class="col mb-5"><img class="rounded img-fluid shadow" src="img/products/Bersii-Website.png"></div>
                 <div class="col d-md-flex align-items-md-end align-items-lg-center mb-5">
                     <div>
-                        <h5 class="fw-bold">Lorem ipsum dolor sit&nbsp;</h5>
-                        <p class="text-muted mb-4">Erat netus est hendrerit, nullam et quis ad cras porttitor iaculis. Bibendum vulputate cras aenean.</p><button class="btn btn-primary shadow" type="button" style="background: #01AA4F;border-style: none;">Learn more</button>
+                        <h5 class="fw-bold">Bersii Website&nbsp;</h5>
+                        <p class="text-muted mb-4">We offer some services in Our Official Website which has been implemented untill now</p><button class="btn btn-primary shadow" type="button" style="background: #01AA4F;border-style: none;">Learn more</button>
                     </div>
                 </div>
             </div>
