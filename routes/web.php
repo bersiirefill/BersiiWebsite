@@ -5,7 +5,7 @@ use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
-use App\Http\Livewire\Login;
+use App\Http\Controllers\StationController;
 use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
 
@@ -53,6 +53,9 @@ Route::middleware('auth')->group(function(){
     Route::get('pengguna', [DashboardController::class, 'daftar_pengguna'])->name('pengguna');
     Route::put('reset_pengguna/{id}', [UserController::class, 'reset_pengguna'])->name('reset_pengguna');
     Route::delete('delete_pengguna/{id}', [UserController::class, 'delete_pengguna'])->name('delete_pengguna');
+    // Station
+    Route::get('station', [DashboardController::class, 'station'])->name('station');
+    Route::post('save_station', [StationController::class, 'new_station'])->name('save_station');
     // Logout
     Route::get('logout_action', [LoginController::class, 'logout_action'])->name('logout_action');
 });

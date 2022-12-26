@@ -26,7 +26,7 @@
                                     <th>Nama</th>
                                     <th>Email</th>
                                     <th>Nomor Telepon</th>
-                                    <th style="width:20%">Aksi</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tfoot>

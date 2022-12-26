@@ -48,4 +48,8 @@ class DashboardController extends Controller
         return view('dashboard.administration.user', compact('pengguna'));
     }
 
+    public function station(){
+        $station = Station::all();
+        return view('dashboard.station.station', compact('station'));
+    }
 }
