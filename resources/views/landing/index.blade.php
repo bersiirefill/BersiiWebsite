@@ -113,7 +113,7 @@
                         <div class="card shadow-sm">
                             <div class="card-body px-4 py-5 px-md-5">
                                 <h5 class="fw-bold card-title">Bersii Supplier&nbsp;</h5>
-                                <p class="text-muted card-text mb-4">You can as our supplier to form our relationship with you and our potential suppliers to build an economy that supports eco green systems.</p><button class="btn btn-primary shadow" type="button" style="background: #01AA4F;border-style: none;">Learn more</button>
+                                <p class="text-muted card-text mb-4">You can join us as our supplier to form our relationship with you and our potential suppliers to build an economy that supports eco green systems.</p><button class="btn btn-primary shadow" type="button" style="background: #01AA4F;border-style: none;">Learn more</button>
                             </div>
                         </div>
                     </div>
