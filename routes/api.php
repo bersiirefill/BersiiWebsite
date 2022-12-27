@@ -18,11 +18,14 @@ use App\Http\Controllers\StationApiController;
 Route::get('/token', [StationApiController::class, 'DefaultUnauthenticated'])->name('token');
 Route::post('/revoke_all', [StationApiController::class, 'revoke_all']);
 Route::post('/login_station', [StationApiController::class, 'login_station']);
+Route::post('/login_station_admin', [StationApiController::class, 'login_station_admin']);
 Route::post('/startup', [StationApiController::class, 'startup']);
 
 Route::middleware('auth:sanctum')->group(function(){
     Route::post('/revoke_station', [StationApiController::class, 'revoke_station']);
     Route::get('/list', [StationApiController::class, 'list']);
+    Route::post('/station_status', [StationApiController::class, 'station_status']);
+    Route::post('/change_station_status', [StationApiController::class, 'change_station_status']);
 });
 
 

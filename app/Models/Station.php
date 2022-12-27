@@ -18,6 +18,7 @@ class Station extends Authenticatable
         'nomor_seri',
         'latitude',
         'longitude',
+        'status_mesin',
         'alamat',
     ];
 

@@ -14,8 +14,7 @@ use Illuminate\Support\Facades\DB;
 class StationApiController extends Controller
 {
 
-    public function DefaultUnauthenticated()
-    {
+    public function DefaultUnauthenticated(){
         return response()->json([
             'status' => 'failed',
             'message' => 'unauthenticated',
@@ -29,66 +28,67 @@ class StationApiController extends Controller
             'email' => 'required',
             'password' => 'required',
             'nomor_seri' => 'required',
-            'status' => 'required',
         ]);
-        // Jika admin yang login
-        if($request->status == 'admin'){
-            $admin = Admin::where('email', $request->email)->first();
-            if(!$admin || ! Hash::check($request->password, $admin->password)){
-                throw ValidationException::withMessages([
-                    'token' => ['Data admin tidak ditemukan'],
-                ]);
-            }
-            $token = $admin->createToken($request->nomor_seri)->plainTextToken;
-            if($token){
-                return response()->json([
-                    'status' => 1,
-                    'message' => 'Sukses',
-                    'data' => [
-                        'id_admin' => $admin->id_admin,
-                        'nama' => $admin->nama,
-                        'email' => $admin->email,
-                        'jabatan' => $admin->jabatan,
-                        'token' => $token,
-                    ],
-                ], 200);
-            }else{
-                return response()->json([
-                    'status' => 0,
-                    'message' => 'Gagal',
-                    'data' => NULL,
-                ], 500);
-            }
+        $user = User::where('email', $request->email)->first();
+        if(!$user || ! Hash::check($request->password, $user->password)){
+            throw ValidationException::withMessages([
+                'token' => ['Data pengguna tidak ditemukan'],
+            ]);
         }
-        // Jika user yang login
-        else{
-            $user = User::where('email', $request->email)->first();
-            if(!$user || ! Hash::check($request->password, $user->password)){
-                throw ValidationException::withMessages([
-                    'token' => ['Data pengguna tidak ditemukan'],
-                ]);
-            }
-            $token = $user->createToken($request->nomor_seri)->plainTextToken;
-            if($token){
-                return response()->json([
-                    'status' => 1,
-                    'message' => 'Sukses',
-                    'data' => [
-                        'id' => $user->id,
-                        'nama' => $user->nama,
-                        'email' => $user->email,
-                        'nomor_telepon' => $user->nomor_telepon,
-                        'alamat' => $user->alamat,
-                        'token' => $token,
-                    ],
-                ], 200);
-            }else{
-                return response()->json([
-                    'status' => 0,
-                    'message' => 'Gagal',
-                    'data' => NULL,
-                ], 500);
-            }
+        $token = $user->createToken($request->nomor_seri)->plainTextToken;
+        if($token){
+            return response()->json([
+                'status' => 1,
+                'message' => 'Sukses',
+                'data' => [
+                    'id' => $user->id,
+                    'nama' => $user->nama,
+                    'email' => $user->email,
+                    'nomor_telepon' => $user->nomor_telepon,
+                    'alamat' => $user->alamat,
+                    'token' => $token,
+                ],
+            ], 200);
+        }else{
+            return response()->json([
+                'status' => 0,
+                'message' => 'Gagal',
+                'data' => NULL,
+            ], 500);
+        }
+    }
+
+    public function login_station_admin(Request $request){
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+            'nomor_seri' => 'required',
+        ]);
+        $admin = Admin::where('email', $request->email)->first();
+        if(!$admin || ! Hash::check($request->password, $admin->password)){
+            throw ValidationException::withMessages([
+                'token' => ['Data admin tidak ditemukan'],
+            ]);
+        }
+        $token = $admin->createToken($request->nomor_seri)->plainTextToken;
+        if($token){
+            return response()->json([
+                'status' => 1,
+                'message' => 'Sukses',
+                'data' => [
+                    'id_admin' => $admin->id_admin,
+                    'nama' => $admin->nama,
+                    'email' => $admin->email,
+                    'jabatan' => $admin->jabatan,
+                    'token' => $token,
+                ],
+            ], 200);
+        }else{
+            return response()->json([
+                'status' => 0,
+                'message' => 'Gagal',
+                'data' => NULL,
+            ], 500);
         }
     }
 
@@ -129,6 +129,63 @@ class StationApiController extends Controller
         }
     }
 
+    public function station_status(Request $request){
+        $validate = $request->validate([
+            'nomor_seri' => 'required',
+        ]);
+        $data = $request->all();
+        $check = Station::where('nomor_seri', '=', $request->nomor_seri)
+        ->first();
+        if($check){
+            if($check->status_mesin == 0){
+                $sts = 'Tidak Aktif';
+            }else if($check->status_mesin == 1){
+                $sts = 'Aktif';
+            }else{
+                $sts = 'Maintenance';
+            }
+            return response()->json([
+                'status' => 1,
+                'message'=> 'Sukses',
+                'data' => [
+                    'nomor_seri' => $check->nomor_seri,
+                    'latitude' => $check->latitude,
+                    'longitude' => $check->longitude,
+                    'status_mesin' => $sts,
+                    'alamat' => $check->alamat,
+                    'update_terakhir' => $check->updated_at,
+                ],
+            ], 200);
+        }else{
+            return response()->json([
+                'status' => 0,
+                'message' => 'Gagal',
+                'data' => NULL,
+            ], 500);
+        }
+    }
+
+    public function change_station_status(Request $request){
+        $validate = $request->validate([
+            'nomor_seri' => 'required',
+        ]);
+        $data = $request->all();
+        $chg = Station::where('nomor_seri', '=', $request->nomor_seri)->update([
+            'status_mesin' => $request->status
+        ]);
+        if($chg){
+            return response()->json([
+                'status' => 1,
+                'message' => 'Status Diperbarui',
+            ], 200);
+        }else{
+            return response()->json([
+                'status' => 0,
+                'message' => 'Status Gagal Diperbarui',
+            ], 200);
+        }
+    }
+
     public function startup(Request $request){
         $validate = $request->validate([
             'nomor_seri' => 'required'
@@ -138,7 +195,15 @@ class StationApiController extends Controller
             'status_mesin' => 1
         ]);
         if($station){
-            
+            return response()->json([
+                'status' => 1,
+                'message' => 'Status Diperbarui',
+            ], 200);
+        }else{
+            return response()->json([
+                'status' => 0,
+                'message' => 'Status Gagal Diperbarui',
+            ], 200);
         }
     }
 
