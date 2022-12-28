@@ -7,6 +7,7 @@ use App\Models\Supplier;
 use App\Models\User;
 use App\Models\Admin;
 use App\Models\Station;
+use App\Models\IsiRefill;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\DB;
@@ -216,6 +217,30 @@ class StationApiController extends Controller
         ], 200);
     }
 
-    
+    public function station_stock(Request $request){
+        $validate = $request->validate([
+            'nomor_seri' => 'required',
+        ]);
+        $data = $request->all();
+        $isi = DB::table('isi_refill')
+        ->join('produk_supplier', 'isi_refill.id_produk', '=', 'produk_supplier.id_produk')
+        ->select('isi_refill.*', 'produk_supplier.nama_produk')
+        ->where('nomor_seri', '=', $data['nomor_seri'])
+        ->get();
+        if($isi){
+            return response()->json([
+                'status' => 1,
+                'message'=> 'Sukses',
+                'data' => $isi,
+            ], 200);
+        }else{
+            return response()->json([
+                'status' => 0,
+                'message'=> 'Gagal',
+                'data' => NULL,
+            ], 200);
+        }
+        
+    }
 
 }

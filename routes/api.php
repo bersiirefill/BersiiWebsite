@@ -26,6 +26,7 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::get('/list', [StationApiController::class, 'list']);
     Route::post('/station_status', [StationApiController::class, 'station_status']);
     Route::post('/change_station_status', [StationApiController::class, 'change_station_status']);
+    Route::post('/station_stock', [StationApiController::class, 'station_stock']);
 });
 
 
