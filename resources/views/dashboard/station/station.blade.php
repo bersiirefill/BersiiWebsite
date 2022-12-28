@@ -58,8 +58,9 @@
                                     </td>
                                     <td><span id="tanggal_update{{ $data->nomor_seri }}">{{ $data->updated_at }}</span></td>
                                     <td>
-                                        <a class="btn btn-danger btn-sm del" data-nomor_seri="{{ $data->nomor_seri }}">Hapus</a>
+                                        <button class="btn btn-danger btn-sm del" onclick="deleteItem(this)" data-nomor_seri="{{ $data->nomor_seri }}">Hapus</button>
                                         <button type="button" class="btn btn-warning btn-sm statedit" value="{{ $data->nomor_seri }}"><span class="glyphicon glyphicon-edit"></span>Ubah</button>
+                                        <a href="{{ route('restock_station', ['nomor_seri' => $data->nomor_seri]) }}" class="btn btn-primary btn-sm">Restock</a>
                                     </td>
                                 </tr>  
                                 @endforeach      
@@ -133,8 +134,8 @@
                             <input type="text" class="form-control" name="longitude_edit" id="longitude_edit" value="">
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btnwarning" type="button" onclick="getLocationEdit()">Koordinat Kini</button>
                             <button class="btn btn-danger" type="button" data-dismiss="modal">Tutup</button> 
+                            <button class="btn btn-warning" type="button" onclick="getLocationEdit()">Koordinat Kini</button>
                             <button type="submit" class="btn btn-primary" type="button">Simpan</button>
                         </div>
                     </form>
@@ -156,29 +157,63 @@
         $('#alamat_edit').val(alamat);
     });
 </script>    
-<script>
-    $(".del").on("click", function () {
-        var nomor_seri = $(this).data('nomor_seri');
-        swal({
-            title: "Anda yakin ?",
-            text: "Apa anda yakin ingin menghapus station ini ?",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        }).then((willDelete) => {
-            if (willDelete) {
-                // console.log(kode_supplier);
-                window.location.href = ;
+<script type="application/javascript">
+
+    function deleteItem(e){
+
+        let nomor_seri = e.getAttribute('data-nomor_seri');
+
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+        });
+        swalWithBootstrapButtons.fire({
+            title: 'Anda yakin ?',
+            text: "Apa anda yakin ingin menghapus station \n\"" + nomor_seri + "\"",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Hapus',
+            cancelButtonText: 'Batal',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.value) {
+                if (result.isConfirmed){
+                    $.ajax({
+                        type:'DELETE',
+                        url:'{{url("/delete_station")}}/' +nomor_seri,
+                        data:{
+                            "_token": "{{ csrf_token() }}",
+                        },
+                        success:function(data) {
+                            window.location.href = "{{ route('station') }}"
+                        }
+                    });
+
+                }
+
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                    'Dibatalkan',
+                    'Pengubahan data dibatalkan',
+                    'error'
+                );
             }
         });
-    })
+
+    }
+
 </script>
 <script>
     // Call the dataTables jQuery plugin
     $(document).ready(function() {
         $('#dataTable').DataTable({
             "language": {
-                "url": "js/demo/id.json"
+                "url": "{{ asset('js/demo/id.json') }}"
             }
         });
     });

@@ -44,6 +44,8 @@ Route::middleware('auth')->group(function(){
     // Produk Supplier
     Route::get('produk_supplier', [DashboardController::class, 'daftar_produk'])->name('produk_supplier');
     Route::post('save_produk', [WarehouseController::class, 'new_product'])->name('save_produk');
+    Route::put('update_produk', [WarehouseController::class, 'update_product'])->name('update_produk');
+    Route::delete('delete_produk/{id_produk}', [WarehouseController::class, 'delete_product'])->name('delete_produk');
     // Administration
     Route::get('administrator', [DashboardController::class, 'daftar_administrator'])->name('administrator');
     Route::post('save_admin', [UserController::class, 'new_admin'])->name('save_admin');
@@ -56,6 +58,13 @@ Route::middleware('auth')->group(function(){
     // Station
     Route::get('station', [DashboardController::class, 'station'])->name('station');
     Route::post('save_station', [StationController::class, 'new_station'])->name('save_station');
+    Route::put('update_station', [StationController::class, 'update_station'])->name('update_station');
+    Route::delete('delete_station/{nomor_seri}', [StationController::class, 'delete_station'])->name('delete_station');
+    // Restock Station
+    Route::get('restock_station/{nomor_seri}', [DashboardController::class, 'restock_station'])->name('restock_station');
+    Route::post('save_restock_station', [StationController::class, 'save_restock_station'])->name('save_restock_station');
+    Route::put('update_restock_station', [StationController::class, 'update_restock_station'])->name('update_restock_station');
+    Route::delete('delete_restock_station/{id_produk}', [StationController::class, 'delete_restock_station'])->name('delete_restock_station');
     // Logout
     Route::get('logout_action', [LoginController::class, 'logout_action'])->name('logout_action');
 });

@@ -42,7 +42,7 @@ class UserController extends Controller
 
     public function update_admin(Admin $admin, Request $request){
         $validate = $request->validate([
-            'id_admin_edit' => 'required|exists:admins',
+            'id_admin_edit' => 'required',
         ]);
         $data = $request->all();
         $edit = Admin::where('id_admin', $request->id_admin_edit)->update([

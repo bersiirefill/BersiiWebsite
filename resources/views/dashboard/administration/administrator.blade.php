@@ -105,25 +105,27 @@
                 <div class="modal-body">
                     <form method="POST" action="{{ route('update_admin') }}" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <div class="mb-3">
                             <label class="form-label">ID Administrator</label>
                             <input type="text" class="form-control" name="id_admin_edit" id="id_admin_edit" value="" readonly>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Nama Lengkap</label>
-                            <input type="text" class="form-control" name="nama_edit" id="nama_edit" value="">
+                            <input type="text" class="form-control" name="nama_edit" id="nama_edit" value="" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Jabatan</label>
-                            <input type="text" class="form-control" name="jabatan_edit" id="jabatan_edit" value="">
+                            <input type="text" class="form-control" name="jabatan_edit" id="jabatan_edit" value="" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Email</label>
-                            <input type="email" class="form-control" name="email_edit" id="email_edit" value="">
+                            <input type="email" class="form-control" name="email_edit" id="email_edit" value="" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Password</label>
-                            <input type="password" class="form-control" name="password_edit" id="password_edit" value="">
+                            <input type="password" class="form-control" name="password_edit" id="password_edit" value="" required>
+                            <label class="form-label" style="color: red;">Silahkan ketik password Anda</label>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-danger" type="button" data-dismiss="modal">Tutup</button>
@@ -205,7 +207,7 @@
     $(document).ready(function() {
         $('#dataTable').DataTable({
             "language": {
-                "url": "js/demo/id.json"
+                "url": "{{ asset('js/demo/id.json') }}"
             }
         });
     });

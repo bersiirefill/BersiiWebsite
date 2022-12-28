@@ -80,4 +80,24 @@ class WarehouseController extends Controller
         }
         return redirect('produk_supplier')->with('success', 'Berhasil mengubah data');
     }
+
+    public function update_product(Request $request){
+        $validate = $request->validate([
+            'id_produk_edit' => 'required',
+            'stok_edit' => 'required',
+        ]);
+        $data = $request->all();
+        $upd_prd = ProdukSupplier::where('id_produk', '=', $request->id_produk_edit)->update([
+            'stok' => $data['stok_edit'],
+        ]);
+        if($upd_prd){
+            return redirect('produk_supplier')->with('success', 'Berhasil mengubah data');
+        }else{
+            return redirect('produk_supplier')->with('error', 'Gagal mengubah data');
+        }
+    }
+
+    public function delete_product(ProdukSupplier $produksupplier, $id_produk){
+        $delete = ProdukSupplier::where('id_produk', $id_produk)->delete();
+    }
 }

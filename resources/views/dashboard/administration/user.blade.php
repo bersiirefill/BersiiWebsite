@@ -228,7 +228,7 @@
     $(document).ready(function() {
         $('#dataTable').DataTable({
             "language": {
-                "url": "js/demo/id.json"
+                "url": "{{ asset('js/demo/id.json') }}"
             }
         });
     });

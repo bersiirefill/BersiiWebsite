@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Admin;
 use App\Models\Station;
+use App\Models\IsiRefill;
 use App\Models\Supplier;
 use App\Models\ProdukSupplier;
 // Planning - Tambah Agen & Driver
@@ -51,5 +52,21 @@ class DashboardController extends Controller
     public function station(){
         $station = Station::all();
         return view('dashboard.station.station', compact('station'));
+    }
+
+    public function restock_station($nomor_seri){
+        $ids = Station::where('nomor_seri', '=', $nomor_seri)->first();
+        $station = DB::table('isi_refill')
+        ->join('refill_stations', 'isi_refill.nomor_seri', '=', 'refill_stations.nomor_seri')
+        ->join('produk_supplier', 'isi_refill.id_produk', '=', 'produk_supplier.id_produk')
+        ->select('refill_stations.*', 'isi_refill.id_produk', 'isi_refill.stok', 'produk_supplier.nama_produk')
+        ->get();
+        $produk = ProdukSupplier::whereNotExists(function($query){
+            $query->select(DB::raw(1))
+                  ->from('isi_refill')
+                  ->whereRaw('produk_supplier.id_produk = isi_refill.id_produk');
+        })
+        ->get();
+        return view('dashboard.station.restock', compact('ids','station', 'produk'));
     }
 }
