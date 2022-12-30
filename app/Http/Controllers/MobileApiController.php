@@ -43,7 +43,7 @@ class MobileApiController extends Controller
     public function register_mobile(Request $request){
         $request->validate([
             'nama' =>'required',
-            'email' =>'required|email|unique:users',
+            'email' =>'required|email|unique:users_bersiis',
             'password' =>'required',
         ]);
         $data = $request->all();
@@ -56,7 +56,11 @@ class MobileApiController extends Controller
             'alamat' => NULL,
             'password' => Hash::make($data['password']),
         ]);
-        if($create){
+        $create2 = Wallet::create([
+            'id' => $rand1,
+            'saldo' => 10000,
+        ]);
+        if($create && $create2){
             header("HTTP/ 200");
             header('Content-Type: application/json');
             $array[] = array(
@@ -72,6 +76,25 @@ class MobileApiController extends Controller
                 'message' => 'Gagal',
             );
             echo json_encode($array);
+        }
+    }
+
+    public function logout_mobile(Request $request){
+        // $station = Station::where('nomor_seri', $request->nomor_seri)->first();
+        $del = DB::table('personal_access_tokens')
+        ->where('id', '=', $request->token_id)
+        ->delete();
+        // $del = $station->tokens()->where('id', $request->token_id)->delete();
+        if($del){
+            return response()->json([
+                'status' => 1,
+                'message' => 'Token Dicabut',
+            ], 200);
+        }else{
+            return response()->json([
+                'status' => 0,
+                'message' => 'Token Gagal Dicabut',
+            ], 500);
         }
     }
 }

@@ -19,6 +19,7 @@ use App\Http\Controllers\MobileApiController;
 Route::get('/token', [StationApiController::class, 'DefaultUnauthenticated'])->name('token');
 // Mobile
 Route::post('/login_mobile', [MobileApiController::class, 'login_mobile'])->name('login_mobile');
+Route::post('/logout_mobile', [MobileApiController::class, 'logout_mobile'])->name('logout_mobile');
 Route::post('/register_mobile', [MobileApiController::class, 'register_mobile'])->name('register_mobile');
 // Station
 Route::post('/revoke_all', [StationApiController::class, 'revoke_all']);
