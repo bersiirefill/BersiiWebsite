@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 // Controller
 use App\Http\Controllers\StationApiController;
+use App\Http\Controllers\MobileApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,10 @@ use App\Http\Controllers\StationApiController;
 |
 */
 Route::get('/token', [StationApiController::class, 'DefaultUnauthenticated'])->name('token');
+// Mobile
+Route::post('/login_mobile', [MobileApiController::class, 'login_mobile'])->name('login_mobile');
+Route::post('/register_mobile', [MobileApiController::class, 'register_mobile'])->name('register_mobile');
+// Station
 Route::post('/revoke_all', [StationApiController::class, 'revoke_all']);
 Route::post('/login_station', [StationApiController::class, 'login_station']);
 Route::post('/login_station_admin', [StationApiController::class, 'login_station_admin']);
