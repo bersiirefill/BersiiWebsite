@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('riwayat_refills', function (Blueprint $table) {
-            $table->string('id_trx')->primary();
-            $table->string('nomor_seri')->index();
-            $table->string('id_user')->index();
+            $table->string('id_trx', 191)->primary();
+            $table->string('nomor_seri', 191)->index();
+            $table->string('id_user', 191)->index();
             $table->timestamps();
         });
     }

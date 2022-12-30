@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('produk_supplier', function (Blueprint $table) {
-            $table->string('id_produk')->primary();
-            $table->string('kode_supplier')->index()->nullable();
-            $table->string('nama_produk')->nullable();
+            $table->string('id_produk', 191)->primary();
+            $table->string('kode_supplier', 191)->index()->nullable();
+            $table->string('nama_produk', 191)->nullable();
             $table->bigInteger('stok')->nullable();
             $table->timestamps();
         });

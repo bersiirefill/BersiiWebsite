@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('suppliers', function (Blueprint $table) {
-            $table->string('kode_supplier')->primary();
-            $table->string('nama_pemilik')->nullable();
-            $table->string('nama_toko')->nullable();
-            $table->string('nomor_telepon')->nullable();
-            $table->string('alamat')->nullable();
+            $table->string('kode_supplier', 191)->primary();
+            $table->string('nama_pemilik', 191)->nullable();
+            $table->string('nama_toko', 191)->nullable();
+            $table->string('nomor_telepon', 191)->nullable();
+            $table->string('alamat', 191)->nullable();
             $table->timestamps();
         });
     }

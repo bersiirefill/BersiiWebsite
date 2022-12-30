@@ -14,12 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users_bersiis', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('nama')->nullable();
-            $table->string('email')->nullable();
-            $table->string('nomor_telepon')->nullable();
-            $table->string('alamat')->nullable();
-            $table->string('password')->nullable();
+            $table->string('id', 191)->primary();
+            $table->string('nama', 191)->nullable();
+            $table->string('email', 191)->nullable();
+            $table->string('nomor_telepon', 191)->nullable();
+            $table->string('alamat', 191)->nullable();
+            $table->string('password', 191)->nullable();
             $table->integer('forgot_token')->nullable();
             $table->rememberToken();
             $table->timestamps();

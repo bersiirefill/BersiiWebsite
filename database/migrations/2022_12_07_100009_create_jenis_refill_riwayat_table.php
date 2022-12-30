@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('jenis_refill_riwayat', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('id_trx')->index();
-            $table->string('id_produk')->index();
+            $table->string('id_trx', 191)->index();
+            $table->string('id_produk', 191)->index();
             $table->bigInteger('jumlah')->nullable();
             $table->timestamps();
         });

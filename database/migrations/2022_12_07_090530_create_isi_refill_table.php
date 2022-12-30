@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('isi_refill', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('id_produk')->index();
-            $table->string('nomor_seri')->index();
+            $table->string('id_produk', 191)->index();
+            $table->string('nomor_seri', 191)->index();
             $table->bigInteger('stok')->nullable();
             $table->timestamps();
         });

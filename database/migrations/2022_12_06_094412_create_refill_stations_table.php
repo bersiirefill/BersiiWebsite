@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('refill_stations', function (Blueprint $table) {
-            $table->string('nomor_seri')->primary();
-            $table->string('latitude')->nullable();
-            $table->string('longitude')->nullable();
+            $table->string('nomor_seri', 191)->primary();
+            $table->string('latitude', 191)->nullable();
+            $table->string('longitude', 191)->nullable();
             $table->enum('status_mesin', ['0', '1', '2'])->comment('0=tidak aktif, 1=aktif, 2=maintenance')->nullable();
-            $table->string('alamat')->nullable();
+            $table->string('alamat', 191)->nullable();
             $table->timestamps();
         });
     }

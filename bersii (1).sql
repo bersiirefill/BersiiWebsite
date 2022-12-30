@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Des 2022 pada 00.31
+-- Waktu pembuatan: 30 Des 2022 pada 04.56
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.1.12
 
@@ -31,11 +31,18 @@ CREATE TABLE `admins` (
   `id_admin` varchar(191) NOT NULL,
   `email` varchar(191) DEFAULT NULL,
   `password` varchar(191) DEFAULT NULL,
-  `nama_admin` varchar(191) DEFAULT NULL,
+  `nama` varchar(191) DEFAULT NULL,
   `jabatan` varchar(191) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `admins`
+--
+
+INSERT INTO `admins` (`id_admin`, `email`, `password`, `nama`, `jabatan`, `created_at`, `updated_at`) VALUES
+('780570', 'bersiirefill@gmail.com', '$2y$10$vVmrVmzuFf8YX1QaLo7ZB.N7jspwtOTOtManiqQlznxGPtD32/Fb.', 'Admin Bersii', 'Administrator', '2022-12-27 01:20:00', '2022-12-27 01:20:00');
 
 -- --------------------------------------------------------
 
@@ -51,6 +58,13 @@ CREATE TABLE `isi_refill` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `isi_refill`
+--
+
+INSERT INTO `isi_refill` (`id`, `id_produk`, `nomor_seri`, `stok`, `created_at`, `updated_at`) VALUES
+(2, 'PRD-1974327192', '00000000c0ed5881', 13, '2022-12-27 22:32:09', '2022-12-27 22:32:09');
 
 -- --------------------------------------------------------
 
@@ -105,7 +119,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 CREATE TABLE `personal_access_tokens` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `tokenable_type` varchar(191) NOT NULL,
-  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
+  `tokenable_id` varchar(191) NOT NULL,
   `name` varchar(191) NOT NULL,
   `token` varchar(64) NOT NULL,
   `abilities` text DEFAULT NULL,
@@ -120,7 +134,10 @@ CREATE TABLE `personal_access_tokens` (
 --
 
 INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
-(1, 'App\\Models\\User', 196961, 'Abc', 'ae42a1e4eb4d67a66589b0245efdad337780c01d63ec3f00fd5c04e6188e96da', '[\"*\"]', '2022-12-18 10:58:07', NULL, '2022-12-18 10:57:44', '2022-12-18 10:58:07');
+(1, 'App\\Models\\Admin', '780570', '00000000c0ed5881', '9a9e1a74d6d4f6c66e835c799d708162e41faf6a532f72ba4cb8348dd422bef9', '[\"*\"]', '2022-12-28 03:52:02', NULL, '2022-12-28 03:05:41', '2022-12-28 03:52:02'),
+(2, 'App\\Models\\Admin', '780570', '00000000c0ed5881', 'f6f47f023b3920c6e9d2ed679af428a1432d5701288901030aff98afe488bf83', '[\"*\"]', '2022-12-28 03:44:09', NULL, '2022-12-28 03:44:09', '2022-12-28 03:44:09'),
+(3, 'App\\Models\\Admin', '780570', '00000000c0ed5881', 'b1f4682f80d0157957cf289a0cc4284baa8e5b07a4fc8ad5abce4675ea1fd991', '[\"*\"]', '2022-12-28 03:51:57', NULL, '2022-12-28 03:51:57', '2022-12-28 03:51:57'),
+(4, 'App\\Models\\Admin', '780570', '00000000c0ed5881', '3bc9b8845939179dede7485d8db56d8c957412e1207baf7e020535b2e68ef5b6', '[\"*\"]', NULL, NULL, '2022-12-28 03:52:10', '2022-12-28 03:52:10');
 
 -- --------------------------------------------------------
 
@@ -137,6 +154,13 @@ CREATE TABLE `produk_supplier` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data untuk tabel `produk_supplier`
+--
+
+INSERT INTO `produk_supplier` (`id_produk`, `kode_supplier`, `nama_produk`, `stok`, `created_at`, `updated_at`) VALUES
+('PRD-1974327192', 'BSPL-349', 'So Wangi', 55, '2022-12-27 01:35:39', '2022-12-27 22:32:09');
+
 -- --------------------------------------------------------
 
 --
@@ -152,6 +176,13 @@ CREATE TABLE `refill_stations` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `refill_stations`
+--
+
+INSERT INTO `refill_stations` (`nomor_seri`, `latitude`, `longitude`, `status_mesin`, `alamat`, `created_at`, `updated_at`) VALUES
+('00000000c0ed5881', '-7.9666204', '112.6326321', '0', 'Singosari', '2022-12-27 01:21:17', '2022-12-28 03:06:31');
 
 -- --------------------------------------------------------
 
@@ -206,8 +237,8 @@ CREATE TABLE `suppliers` (
 --
 
 INSERT INTO `suppliers` (`kode_supplier`, `nama_pemilik`, `nama_toko`, `nomor_telepon`, `alamat`, `created_at`, `updated_at`) VALUES
-('BSPL-290', 'Fauzan Mustofa', 'Sumber Selamat', '08123456', 'Singosari', '2022-12-18 10:54:12', '2022-12-18 10:54:12'),
-('BSPL-921', 'Ahmad Muzakki', 'Maju Jaya Sentosa Abadi Lancar', '08123456', 'Sawojajar', '2022-12-18 10:54:12', '2022-12-18 10:54:12');
+('BSPL-349', 'Ahmad Muzakki', 'Maju Jaya Sentosa Abadi Lancar', '08123456', 'Sawojajar', '2022-12-27 01:20:00', '2022-12-27 04:49:58'),
+('BSPL-709', 'Fauzan Mustofa', 'Sumber Selamat', '08123456', 'Singosari', '2022-12-27 01:20:00', '2022-12-27 01:20:00');
 
 -- --------------------------------------------------------
 
@@ -233,11 +264,11 @@ CREATE TABLE `users_bersiis` (
 --
 
 INSERT INTO `users_bersiis` (`id`, `nama`, `email`, `nomor_telepon`, `alamat`, `password`, `forgot_token`, `remember_token`, `created_at`, `updated_at`) VALUES
-('153189', 'Achmad Agil Susanto', 'ahmadagilsusanto@gmail.com', '6282237174435', 'Sawojajar', '$2y$10$8aobjBVflOvR0bvlqREyCefcPS10aCcJm51zB2pSjGrNWKG79F0yK', NULL, 'hfpT6DwifuJMMxyC', '2022-12-18 10:54:12', '2022-12-18 10:54:12'),
-('196961', 'Hanustavira Guru Acarya', 'hanustavira.acarya@binus.ac.id', '6285745402100', 'Singosari', '$2y$10$gogdUMxrLkxL6dWw1/KNpeoPI8wuZke0Cfhq0lrTBcYbr8J7hYZ3G', NULL, 'SoG9kHupVlsIeYIM', '2022-12-18 10:54:11', '2022-12-18 10:54:11'),
-('330798', 'Thomas Harman Bintang', 'thomasharman99@gmail.com', '6285171191215', 'Blimbing', '$2y$10$CVmPHRbL8yL6LoxplgZo0OGrrSR5xTtYCU2HaEt3IMm8oWU8UsGt2', NULL, 'lzHMTIxCclX9fVjK', '2022-12-18 10:54:12', '2022-12-18 10:54:12'),
-('725454', 'Fauzan Mustofa', 'fauzanmusthofa.fm@gmail.com', '6281111116098', 'Sawojajar', '$2y$10$fmsjPjDDFQ3JV/l1qdeZfO7GPaP2QIHwticF5kv4GnJvLAi974tf2', NULL, 'PkCY7A6oNW0ksHnG', '2022-12-18 10:54:11', '2022-12-18 10:54:11'),
-('877665', 'Viana Salsabila Tauda', 'vianatauda@gmail.com', '6281344847038', 'Sawojajar', '$2y$10$stOTrtLkKZ1L7GYk7pO9b.fXDSEwIsSID8uxw8gQns.7dxjpwLfA6', NULL, 'giGeSvCdUqiiBnKa', '2022-12-18 10:54:11', '2022-12-18 10:54:11');
+('449217', 'Achmad Agil Susanto', 'ahmadagilsusanto@gmail.com', '6282237174435', 'Sawojajar', '$2y$10$6mlty3efWKQ2xwxwHeE7g.5jTZ2ay5rgN6PxblxUZ7N4kd52zbh46', NULL, 'JVoPUImi16FXeT4A', '2022-12-27 01:20:00', '2022-12-27 01:20:00'),
+('548983', 'Hanustavira Guru Acarya', 'hanustavira.acarya@binus.ac.id', '6285745402100', 'Singosari', '$2y$10$n6tFXxA55MdrW7sGMB5EGe3PIIAXo5FCxcOcpolMALGtsryw/GVq2', NULL, 'K0eCgKKoIoGFL8tp', '2022-12-27 01:20:00', '2022-12-27 01:20:00'),
+('587341', 'Fauzan Mustofa', 'fauzanmusthofa.fm@gmail.com', '6281111116098', 'Sawojajar', '$2y$10$C3Yj6nH44GRAPrjr724zjumw1QgduFMNrUzIVRXT3Vy1LHAiKSUtC', NULL, '71vYubkl91AEgbi5', '2022-12-27 01:20:00', '2022-12-27 01:20:00'),
+('666227', 'Viana Salsabila Tauda', 'vianatauda@gmail.com', '6281344847038', 'Sawojajar', '$2y$10$MeYc1QwUl0K.2e0UhXvefOm9shsKhmVK.tY2BaB3h2k1hG.ejYM1.', NULL, 'OlP3cgGJDDAjngqa', '2022-12-27 01:20:00', '2022-12-27 01:20:00'),
+('903243', 'Thomas Harman Bintang', 'thomasharman99@gmail.com', '6285171191215', 'Blimbing', '$2y$10$fNeSlBb.UUmGSmnsDq8G1.L7uKwPFFACh7FwGBOjl/sB81yuSpqqC', NULL, 'Wb8l8dle9lJB1Ndh', '2022-12-27 01:20:00', '2022-12-27 01:20:00');
 
 -- --------------------------------------------------------
 
@@ -257,15 +288,21 @@ CREATE TABLE `wallet` (
 --
 
 INSERT INTO `wallet` (`id`, `saldo`, `created_at`, `updated_at`) VALUES
-('196961', '50000.00', '2022-12-18 10:54:11', '2022-12-18 10:54:11'),
-('725454', '150000.00', '2022-12-18 10:54:11', '2022-12-18 10:54:11'),
-('877665', '75000.00', '2022-12-18 10:54:12', '2022-12-18 10:54:12'),
-('330798', '90000.00', '2022-12-18 10:54:12', '2022-12-18 10:54:12'),
-('153189', '65000.00', '2022-12-18 10:54:12', '2022-12-18 10:54:12');
+('548983', '50000.00', '2022-12-27 01:20:00', '2022-12-27 01:20:00'),
+('587341', '150000.00', '2022-12-27 01:20:00', '2022-12-27 01:20:00'),
+('666227', '75000.00', '2022-12-27 01:20:00', '2022-12-27 01:20:00'),
+('903243', '90000.00', '2022-12-27 01:20:00', '2022-12-27 01:20:00'),
+('449217', '65000.00', '2022-12-27 01:20:00', '2022-12-27 01:20:00');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indeks untuk tabel `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id_admin`);
 
 --
 -- Indeks untuk tabel `isi_refill`
@@ -295,7 +332,8 @@ ALTER TABLE `migrations`
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
-  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+  ADD KEY `personal_access_tokens_tokenable_type_index` (`tokenable_type`),
+  ADD KEY `personal_access_tokens_tokenable_id_index` (`tokenable_id`);
 
 --
 -- Indeks untuk tabel `produk_supplier`
@@ -351,7 +389,7 @@ ALTER TABLE `wallet`
 -- AUTO_INCREMENT untuk tabel `isi_refill`
 --
 ALTER TABLE `isi_refill`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `jenis_refill_riwayat`
@@ -369,56 +407,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT untuk tabel `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `riwayat_topup`
 --
 ALTER TABLE `riwayat_topup`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
---
-
---
--- Ketidakleluasaan untuk tabel `isi_refill`
---
-ALTER TABLE `isi_refill`
-  ADD CONSTRAINT `isi_refill_ibfk_1` FOREIGN KEY (`id_produk`) REFERENCES `produk_supplier` (`id_produk`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `isi_refill_ibfk_2` FOREIGN KEY (`nomor_seri`) REFERENCES `refill_stations` (`nomor_seri`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `jenis_refill_riwayat`
---
-ALTER TABLE `jenis_refill_riwayat`
-  ADD CONSTRAINT `jenis_refill_riwayat_ibfk_1` FOREIGN KEY (`id_trx`) REFERENCES `riwayat_refills` (`id_trx`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `jenis_refill_riwayat_ibfk_2` FOREIGN KEY (`id_produk`) REFERENCES `produk_supplier` (`id_produk`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `produk_supplier`
---
-ALTER TABLE `produk_supplier`
-  ADD CONSTRAINT `produk_supplier_ibfk_1` FOREIGN KEY (`kode_supplier`) REFERENCES `suppliers` (`kode_supplier`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `riwayat_refills`
---
-ALTER TABLE `riwayat_refills`
-  ADD CONSTRAINT `riwayat_refills_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users_bersiis` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `riwayat_refills_ibfk_2` FOREIGN KEY (`nomor_seri`) REFERENCES `refill_stations` (`nomor_seri`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `riwayat_topup`
---
-ALTER TABLE `riwayat_topup`
-  ADD CONSTRAINT `riwayat_topup_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users_bersiis` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `wallet`
---
-ALTER TABLE `wallet`
-  ADD CONSTRAINT `wallet_ibfk_1` FOREIGN KEY (`id`) REFERENCES `users_bersiis` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
