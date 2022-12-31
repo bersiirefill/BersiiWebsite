@@ -183,7 +183,7 @@ class StationApiController extends Controller
             return response()->json([
                 'status' => 0,
                 'message' => 'Status Gagal Diperbarui',
-            ], 200);
+            ], 500);
         }
     }
 
@@ -204,7 +204,7 @@ class StationApiController extends Controller
             return response()->json([
                 'status' => 0,
                 'message' => 'Status Gagal Diperbarui',
-            ], 200);
+            ], 500);
         }
     }
 
@@ -238,7 +238,7 @@ class StationApiController extends Controller
                 'status' => 0,
                 'message'=> 'Gagal',
                 'data' => NULL,
-            ], 200);
+            ], 500);
         }
         
     }
