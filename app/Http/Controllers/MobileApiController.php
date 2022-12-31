@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Wallet;
@@ -25,6 +26,7 @@ class MobileApiController extends Controller
             ]);
         }
         $token = $user->createToken($request->email)->plainTextToken;
+        $wallet = $user->wallet()->first(['wallet.saldo']);
         header("HTTP/ 200");
         header('Content-Type: application/json');
         $array[] = array(
@@ -35,6 +37,7 @@ class MobileApiController extends Controller
             'email' => $user->email,
             'nomor_telepon' => $user->nomor_telepon,
             'alamat' => $user->alamat,
+            'saldo' => $wallet->saldo,
             'token' => $token
         );
         echo json_encode($array);
@@ -82,19 +85,55 @@ class MobileApiController extends Controller
     public function logout_mobile(Request $request){
         // $station = Station::where('nomor_seri', $request->nomor_seri)->first();
         $del = DB::table('personal_access_tokens')
-        ->where('id', '=', $request->token_id)
+        ->where('id', '=', $request->token)
         ->delete();
         // $del = $station->tokens()->where('id', $request->token_id)->delete();
         if($del){
-            return response()->json([
+            header("HTTP/ 200");
+            header('Content-Type: application/json');
+            $array[] = array(
                 'status' => 1,
                 'message' => 'Token Dicabut',
-            ], 200);
+            );
+            echo json_encode($array);
         }else{
-            return response()->json([
+            header("HTTP/ 500");
+            header('Content-Type: application/json');
+            $array[] = array(
                 'status' => 0,
                 'message' => 'Token Gagal Dicabut',
-            ], 500);
+            );
+            echo json_encode($array);
+        }
+    }
+
+    public function forgot_mobile(Request $request){
+        $rand1 = rand(100000,1000000);
+        User::where('email', $request->email)->update([
+            'forgot_token' => $rand1,
+        ]);
+        // Ambil nama
+        $sch_name = DB::table('users_bersiis')
+        ->select('nama', 'email')
+        ->where('email', '=', $request->email)->first();
+        // Kirim
+        $snd = MailController::index($sch_name->nama, $sch_name->email, $rand1);
+        if($snd == true){
+            header("HTTP/ 200");
+            header('Content-Type: application/json');
+            $array[] = array(
+                'status' => 1,
+                'message' => 'Email Dikirim',
+            );
+            echo json_encode($array);
+        }else{
+            header("HTTP/ 500");
+            header('Content-Type: application/json');
+            $array[] = array(
+                'status' => 0,
+                'message' => 'Email Gagal Dikirim',
+            );
+            echo json_encode($array);
         }
     }
 }

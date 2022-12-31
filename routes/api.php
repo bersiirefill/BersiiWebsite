@@ -21,6 +21,7 @@ Route::get('/token', [StationApiController::class, 'DefaultUnauthenticated'])->n
 Route::post('/login_mobile', [MobileApiController::class, 'login_mobile'])->name('login_mobile');
 Route::post('/logout_mobile', [MobileApiController::class, 'logout_mobile'])->name('logout_mobile');
 Route::post('/register_mobile', [MobileApiController::class, 'register_mobile'])->name('register_mobile');
+Route::post('/forgot_mobile', [MobileApiController::class, 'forgot_mobile'])->name('forgot_mobile');
 // Station
 Route::post('/revoke_all', [StationApiController::class, 'revoke_all']);
 Route::post('/login_station', [StationApiController::class, 'login_station']);
