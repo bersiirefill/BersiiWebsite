@@ -81,7 +81,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Stok (liter)</label>
-                            <input type="number" class="form-control" name="stok" id="stok" min="1" max="100" required>
+                            <input type="number" class="form-control" name="stok" id="stok" step="0.1" min="0" max="100" required>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-danger" type="button" data-dismiss="modal">Tutup</button>
@@ -114,7 +114,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Stok (liter)</label>
-                            <input type="text" class="form-control" name="stok_edit" id="stok_edit" value="">
+                            <input type="text" class="form-control" name="stok_edit" id="stok_edit" step="0.1" min="0" max="100" value="">
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-danger" type="button" data-dismiss="modal">Tutup</button> 

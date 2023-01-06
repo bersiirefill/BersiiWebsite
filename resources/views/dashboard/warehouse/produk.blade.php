@@ -24,6 +24,7 @@
                                     <th>ID Produk</th>
                                     <th>Nama Produk</th>
                                     <th>Stok (liter)</th>
+                                    <th>Harga (Rupiah)</th>
                                     <th>Tanggal Update Stok</th>
                                     <th style="width:20%">Aksi</th>
                                 </tr>
@@ -34,6 +35,7 @@
                                     <th>ID Produk</th>
                                     <th>Nama Produk</th>
                                     <th>Stok (liter)</th>
+                                    <th>Harga (Rupiah)</th>
                                     <th>Tanggal Update Stok</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -45,6 +47,7 @@
                                     <td class="sorting_1"><span id="id_produk{{ $data->id_produk }}">{{ $data->id_produk }}</span></td>
                                     <td><span id="nama_produk{{ $data->id_produk }}">{{ $data->nama_produk }}</span></td>
                                     <td><span id="stok{{ $data->id_produk }}">{{ $data->stok }}</span></td>
+                                    <td><span id="harga{{ $data->id_produk }}">{{ $data->harga_produk }}</span></td>
                                     <td><span id="update{{ $data->id_produk }}">{{ $data->updated_at }}</span></td>
                                     <td>
                                         <button class="btn btn-danger btn-sm del" onclick="deleteItem(this)" data-id_produk="{{ $data->id_produk }}" data-nama="{{ $data->nama_produk }}">Hapus</button>
@@ -84,11 +87,15 @@
                                     <div class="card-body">
                                         <div class="mb-3">
                                             <label class="form-label">Nama Produk</label>
-                                            <input type="text" class="form-control" name="nama_produk[]" id="nama_produk[]" >
+                                            <input type="text" class="form-control" name="nama_produk[]" id="nama_produk[]" required>
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Stok (liter)</label>
-                                            <input type="number" class="form-control" name="stok[]" id="stok[]">
+                                            <input type="number" class="form-control" name="stok[]" id="stok[]" step="0.1" min="0" max="100" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Harga (Rupiah)</label>
+                                            <input type="number" class="form-control" name="harga_produk[]" id="harga_produk[]" required>
                                         </div>
                                     </div>
                                 </div>
@@ -129,7 +136,11 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Stok (liter)</label>
-                            <input type="number" class="form-control" name="stok_edit" id="stok_edit" min="1" max="100">
+                            <input type="number" class="form-control" name="stok_edit" id="stok_edit" step="0.1" min="0" max="100" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Harga (Rupiah)</label>
+                            <input type="number" class="form-control" name="harga_edit" id="harga_edit" required>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-danger" type="button" data-dismiss="modal">Tutup</button>
@@ -146,10 +157,12 @@
         var id_produk=$(this).val();
         var nama_produk=$('#nama_produk'+id_produk).text();
         var stok=$('#stok'+id_produk).text();
+        var harga=$('#harga'+id_produk).text();
         $('#editModal').modal('show');
         $('#id_produk_edit').val(id_produk);
         $('#nama_produk_edit').val(nama_produk);
         $('#stok_edit').val(stok);
+        $('#harga_edit').val(harga);
     });
 </script>  
 

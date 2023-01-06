@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('id_produk', 191)->index();
             $table->string('nomor_seri', 191)->index();
-            $table->bigInteger('stok')->nullable();
+            $table->double('stok')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tangki_refills');
+        Schema::dropIfExists('isi_refill');
     }
 };

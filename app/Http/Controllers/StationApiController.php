@@ -224,7 +224,7 @@ class StationApiController extends Controller
         $data = $request->all();
         $isi = DB::table('isi_refill')
         ->join('produk_supplier', 'isi_refill.id_produk', '=', 'produk_supplier.id_produk')
-        ->select('isi_refill.*', 'produk_supplier.nama_produk')
+        ->select('isi_refill.*', 'produk_supplier.nama_produk', 'produk_supplier.harga_produk')
         ->where('nomor_seri', '=', $data['nomor_seri'])
         ->get();
         if($isi){

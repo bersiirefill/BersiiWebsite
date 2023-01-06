@@ -15,7 +15,8 @@ class ProdukSupplier extends Model
         'id_produk',
         'kode_supplier',
         'nama_produk',
-        'stok'
+        'stok',
+        'harga_produk',
     ];
 
     public function supplier(){

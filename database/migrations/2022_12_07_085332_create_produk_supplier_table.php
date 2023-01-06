@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('id_produk', 191)->primary();
             $table->string('kode_supplier', 191)->index()->nullable();
             $table->string('nama_produk', 191)->nullable();
-            $table->bigInteger('stok')->nullable();
+            $table->double('stok')->nullable();
+            $table->bigInteger('harga_produk')->nullable();
             $table->timestamps();
         });
     }

@@ -69,13 +69,14 @@ class WarehouseController extends Controller
             'kode_supplier' => 'required'
         ]);
         $data = $request->all();
-        for ($i = 0 ; $i < sizeof($data['nama_produk']) || $i < sizeof($data['stok']) ;$i++) {
+        for ($i = 0; $i < sizeof($data['nama_produk']) || $i < sizeof($data['stok']); $i++) {
             $rands = 'PRD-'.rand();
             $add = ProdukSupplier::create([
                 'id_produk' => $rands,
                 'kode_supplier' => $data['kode_supplier'],
                 'nama_produk' => $data['nama_produk'][$i],
-                'stok' => $data['stok'][$i]
+                'stok' => $data['stok'][$i],
+                'harga_produk' => $data['harga_produk'][$i]
             ]);
         }
         return redirect('produk_supplier')->with('success', 'Berhasil mengubah data');
@@ -85,10 +86,12 @@ class WarehouseController extends Controller
         $validate = $request->validate([
             'id_produk_edit' => 'required',
             'stok_edit' => 'required',
+            'harga_edit' => 'required',
         ]);
         $data = $request->all();
         $upd_prd = ProdukSupplier::where('id_produk', '=', $request->id_produk_edit)->update([
             'stok' => $data['stok_edit'],
+            'harga_produk' => $data['harga_edit'],
         ]);
         if($upd_prd){
             return redirect('produk_supplier')->with('success', 'Berhasil mengubah data');
