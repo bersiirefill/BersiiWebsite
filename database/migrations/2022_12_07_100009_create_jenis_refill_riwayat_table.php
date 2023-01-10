@@ -17,7 +17,8 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('id_trx', 191)->index();
             $table->string('id_produk', 191)->index();
-            $table->bigInteger('jumlah')->nullable();
+            $table->double('jumlah_refill')->nullable();
+            $table->bigInteger('harga')->nullable();
             $table->timestamps();
         });
     }

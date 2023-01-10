@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('id_trx', 191)->primary();
             $table->string('nomor_seri', 191)->index();
             $table->string('id_user', 191)->index();
+            $table->bigInteger('total_harga')->nullable();
             $table->timestamps();
         });
     }

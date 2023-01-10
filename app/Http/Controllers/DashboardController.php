@@ -11,6 +11,8 @@ use App\Models\Station;
 use App\Models\IsiRefill;
 use App\Models\Supplier;
 use App\Models\ProdukSupplier;
+use App\Models\DaftarTransaksiRefill;
+use App\Models\DetailTransaksiRefill;
 // Planning - Tambah Agen & Driver
 
 class DashboardController extends Controller
@@ -68,5 +70,9 @@ class DashboardController extends Controller
         })
         ->get();
         return view('dashboard.station.restock', compact('ids','station', 'produk'));
+    }
+
+    public function daftar_transaksi_refill(){
+        $transaksi = DetailTransaksiRefill::all();
     }
 }

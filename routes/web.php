@@ -65,6 +65,8 @@ Route::middleware('auth')->group(function(){
     Route::post('save_restock_station', [StationController::class, 'save_restock_station'])->name('save_restock_station');
     Route::put('update_restock_station', [StationController::class, 'update_restock_station'])->name('update_restock_station');
     Route::delete('delete_restock_station/{id_produk}', [StationController::class, 'delete_restock_station'])->name('delete_restock_station');
+    // Daftar Transaksi
+    
     // Logout
     Route::get('logout_action', [LoginController::class, 'logout_action'])->name('logout_action');
 });
