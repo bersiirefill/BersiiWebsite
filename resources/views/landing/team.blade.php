@@ -42,7 +42,7 @@
             <div class="row row-cols-2 row-cols-md-3 mx-auto" style="max-width: 700px;">
                 <div class="col mb-4"></div>
                 <div class="col mb-4">
-                    <div class="text-center"><img class="rounded mb-3 fit-cover" width="150" height="150" src="assets/img/team/avatar1.jpg">
+                    <div class="text-center"><img class="rounded mb-3 fit-cover" width="150" height="150" src="/public/img/satuan.png">
                         <h5 class="fw-bold mb-0"><strong>Viana Salsabila</strong></h5>
                         <p class="text-muted mb-2">CEO</p>
                     </div>

@@ -107,11 +107,11 @@
                     <h3 class="fs-6 fw-bold">About</h3>
                     <ul class="list-unstyled">
                         <li><a href="#">Company</a></li>
-                        <li><a href="#">Team</a></li>
+                        <li><a href="{{ route('team') }}">Team</a></li>
                         <li><a href="#">Legacy</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-4 col-md-1 text-center text-lg-start d-flex flex-column item">
+                <div class="col-sm-4 col-md-1 text-center text-olg-start d-flex flex-column item">
                     {{-- <h3 class="fs-6 fw-bold">Careers</h3>
                     <ul class="list-unstyled">
                         <li><a href="#">Job openings</a></li>

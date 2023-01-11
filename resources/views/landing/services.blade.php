@@ -66,7 +66,7 @@
             </div>
         </div>
     </section>
-    
+
     <footer class="bg-primary-gradient">
         <div class="container py-4 py-lg-5">
             <div class="row justify-content-center">
@@ -82,7 +82,7 @@
                     <h3 class="fs-6 fw-bold">About</h3>
                     <ul class="list-unstyled">
                         <li><a href="#">Company</a></li>
-                        <li><a href="#">Team</a></li>
+                        <li><a href="{{ route('team') }}">Team</a></li>
                         <li><a href="#">Legacy</a></li>
                     </ul>
                 </div>
