@@ -20,6 +20,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Pembuatan symlink di shared hosting
+// Route::get('/symlink', function () {
+//     Artisan::call('storage:link');
+// });
+
 Route::get('/', [LandingController::class, 'index'])->name('home');
 Route::get('/contacts', [LandingController::class, 'contacts'])->name('contacts');
 Route::get('/services', [LandingController::class, 'services'])->name('services');

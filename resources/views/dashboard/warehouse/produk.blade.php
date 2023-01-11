@@ -21,6 +21,8 @@
                             <thead>
                                 <tr role="row">
                                     <th hidden>Nama Supplier</th>
+                                    <th hidden>Gambar</th>
+                                    <th hidden>Deskripsi</th>
                                     <th>ID Produk</th>
                                     <th>Nama Produk</th>
                                     <th>Stok (liter)</th>
@@ -32,6 +34,8 @@
                             <tfoot>
                                 <tr>
                                     <th hidden>Nama Supplier</th>
+                                    <th hidden>Gambar</th>
+                                    <th hidden>Deskripsi</th>
                                     <th>ID Produk</th>
                                     <th>Nama Produk</th>
                                     <th>Stok (liter)</th>
@@ -44,6 +48,9 @@
                                 @foreach($daftar as $data)
                                 <tr role=" row" class="odd">
                                     <td hidden><span id="nama_supplier{{ $data->id_produk }}">{{ $data->nama_toko }}</span></td>
+                                    <td hidden><span id="gambar{{ $data->id_produk }}">{{ $data->gambar_produk }}</span></td>
+                                    <td hidden><span id="deskripsi{{ $data->id_produk }}">{{ $data->deskripsi_produk }}</span></td>
+
                                     <td class="sorting_1"><span id="id_produk{{ $data->id_produk }}">{{ $data->id_produk }}</span></td>
                                     <td><span id="nama_produk{{ $data->id_produk }}">{{ $data->nama_produk }}</span></td>
                                     <td><span id="stok{{ $data->id_produk }}">{{ $data->stok }}</span></td>
@@ -90,12 +97,20 @@
                                             <input type="text" class="form-control" name="nama_produk[]" id="nama_produk[]" required>
                                         </div>
                                         <div class="mb-3">
+                                            <label class="form-label">Deskripsi Produk</label>
+                                            <textarea class="form-control" name="deskripsi_produk[]" id="deskripsi_produk[]" rows="3"></textarea>
+                                        </div>
+                                        <div class="mb-3">
                                             <label class="form-label">Stok (liter)</label>
                                             <input type="number" class="form-control" name="stok[]" id="stok[]" step="0.1" min="0" max="100" required>
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Harga (Rupiah)</label>
                                             <input type="number" class="form-control" name="harga_produk[]" id="harga_produk[]" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Gambar Produk</label>
+                                            <input type="file" class="form-control" name="gambar_produk[]" id="gambar_produk[]" accept="image/*" required>
                                         </div>
                                     </div>
                                 </div>
@@ -135,6 +150,14 @@
                             <input type="text" class="form-control" name="nama_produk_edit" id="nama_produk_edit" readonly>
                         </div>
                         <div class="mb-3">
+                            <label class="form-label">Supplier</label>
+                            <input type="text" class="form-control" name="supplier_edit" id="supplier_edit" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Deskripsi Produk</label>
+                            <textarea class="form-control" name="deskripsi_produk_edit" id="deskripsi_produk_edit" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
                             <label class="form-label">Stok (liter)</label>
                             <input type="number" class="form-control" name="stok_edit" id="stok_edit" step="0.1" min="0" max="100" required>
                         </div>
@@ -142,6 +165,14 @@
                             <label class="form-label">Harga (Rupiah)</label>
                             <input type="number" class="form-control" name="harga_edit" id="harga_edit" required>
                         </div>
+                        <div class="mb-3">
+                            <label class="form-label">Gambar Produk</label>
+                            <input type="file" class="form-control" name="gambar_produk_edit" id="gambar_produk_edit" accept="image/*">
+                        </div>
+                        <input type="hidden" name="gambar_produk_lama" id="gambar_produk_lama" value="">
+                        <a href="" target="_blank" id="gambar_lama" class="btn btn-warning">Gambar Produk Lama</a>
+                        <br>
+                        <br>
                         <div class="modal-footer">
                             <button class="btn btn-danger" type="button" data-dismiss="modal">Tutup</button>
                             <button type="submit" class="btn btn-primary" type="button">Simpan</button>
@@ -156,13 +187,23 @@
     $(document).on("click", ".prodedit", function(){
         var id_produk=$(this).val();
         var nama_produk=$('#nama_produk'+id_produk).text();
+        var nama_supplier=$('#nama_supplier'+id_produk).text();
         var stok=$('#stok'+id_produk).text();
         var harga=$('#harga'+id_produk).text();
+        var gambar=$('#gambar'+id_produk).text();
+        var deskripsi=$('#deskripsi'+id_produk).text();
         $('#editModal').modal('show');
         $('#id_produk_edit').val(id_produk);
         $('#nama_produk_edit').val(nama_produk);
+        $('#deskripsi_produk_edit').val(deskripsi);
+        $('#supplier_edit').val(nama_supplier);
         $('#stok_edit').val(stok);
         $('#harga_edit').val(harga);
+        $('#gambar_produk_lama').val(gambar);
+        var link = document.getElementById("gambar_lama");
+        // Ganti jadi https://bersii.my.id saat deployment
+        // link.setAttribute("href", 'https://bersii.my.id/storage/upload/'+gambar);
+        link.setAttribute("href", 'http://192.168.1.70:8000/storage/upload/'+gambar);
     });
 </script>  
 
@@ -233,7 +274,7 @@
     $('#plusInput').on('click', function (e) {
         e.preventDefault();
         var shot =
-            ' <div class="card mb-4 py-3 parent"><div class="card-body"><div class="mb-3"><label class="form-label">Nama Produk</label><input type="text" class="form-control" name="nama_produk[]" id="nama_produk[]" ></div><div class="mb-3"><label class="form-label">Stok (liter)</label><input type="text" class="form-control" name="stok[]" id="stok[]"></div><button class="btn btn-danger del-input" type="button" onclick="del(this)" style="font-size: 15px">Hapus</button></div></div>';
+            '<div class="card mb-4 py-3 parent"><div class="card-body"><div class="mb-3"><label class="form-label">Nama Produk</label><input type="text" class="form-control" name="nama_produk[]" id="nama_produk[]" required></div><div class="mb-3"><label class="form-label">Deskripsi Produk</label><textarea class="form-control" name="deskripsi_produk[]" id="deskripsi_produk[]" rows="3"></textarea></div><div class="mb-3"><label class="form-label">Stok (liter)</label><input type="number" class="form-control" name="stok[]" id="stok[]" step="0.1" min="0" max="100" required></div><div class="mb-3"><label class="form-label">Harga (Rupiah)</label><input type="number" class="form-control" name="harga_produk[]" id="harga_produk[]" required></div><div class="mb-3"><label class="form-label">Gambar Produk</label><input type="file" class="form-control" name="gambar_produk[]" id="gambar_produk[]" accept="image/*" required></div><button class="btn btn-danger del-input" type="button" onclick="del(this)" style="font-size: 15px">Hapus</button></div></div>';
         $('#target').append(shot);
     });
 
