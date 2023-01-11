@@ -7,6 +7,8 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
+// Pakai Faker
+use Faker\Factory as Faker;
 
 class AdminSeeder extends Seeder
 {
@@ -18,13 +20,15 @@ class AdminSeeder extends Seeder
     public function run()
     {
         //
+        $faker = Faker::create('id_ID');
+
         $rand1 = rand(100000,1000000);
         DB::table('admins')->insert([
             'id_admin' => $rand1,
             'email' => 'bersiirefill@gmail.com',
             'password' => Hash::make('sunibngalam'),
-            'nama' => 'Admin Bersii',
-            'jabatan' => 'Administrator',
+            'nama' => $faker->name,
+            'jabatan' => $faker->jobTitle,
             'created_at' => now(),
             'updated_at' => now()
         ]);
