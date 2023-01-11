@@ -28,6 +28,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [LandingController::class, 'index'])->name('home');
 Route::get('/contacts', [LandingController::class, 'contacts'])->name('contacts');
 Route::get('/services', [LandingController::class, 'services'])->name('services');
+
+//footer
+Route::get('/team', [LandingController::class, 'team'])->name('team');
+
 // Login Sign Up routes
 Route::get('login', [LoginController::class, 'login'])->name('login');
 Route::get('daftar', [LoginController::class, 'signup'])->name('daftar');

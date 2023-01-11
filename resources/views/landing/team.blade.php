@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Services - Bersii</title>
+    <title>Team - Bersii</title>
     <meta name="theme-color" content="#e9f5db">
     <link rel="icon" type="image/svg+xml" sizes="271x259" href="{{ asset('img/just%20bersii%20logo.svg') }}">
     <link rel="icon" type="image/svg+xml" sizes="271x259" href="{{ asset('img/just%20bersii%20logo.svg') }}">
@@ -13,8 +12,9 @@
     <link rel="manifest" href="{{ asset('js/manifest.json') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
 </head>
+
 <body style="/*background: url(&quot;design.jpg&quot;);*/background-position: 0 -60px;">
-<nav class="navbar navbar-light navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav">
+    <nav class="navbar navbar-light navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
                 <img src="img/horizontal.png" style="max-height: 35px">
@@ -23,50 +23,63 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link  active" href="{{ route('services')}}">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('services')}}">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('contacts')}}">Contacts</a></li>
                 </ul><a class="btn btn-primary shadow" role="button" href="{{ route('daftar') }}" style="background: #01AA4F;border-style: none;">Daftar Jadi Mitra Bersii!</a>
             </div>
         </div>
     </nav>
+
     <section class="py-5">
         <div class="container py-5">
             <div class="row mb-4 mb-lg-5">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
-                    <p class="fw-bold text-success mb-2">Our Services</p>
-                    <h3 class="fw-bold">What we can do for you</h3>
+                    <p class="fw-bold text-success mb-2">Our Team</p>
+                    <h2 class="fw-bold">All Star Behind Bersii</h2>
+                    <p class="text-muted">People behind Bersii.</p>
                 </div>
             </div>
-            <div class="row row-cols-1 row-cols-md-2 mx-auto" style="max-width: 900px;">
-                <div class="col mb-5"><img class="rounded img-fluid shadow" src="img/products/Refill-Station.png"></div>
-                <div class="col d-md-flex align-items-md-end align-items-lg-center mb-5">
-                    <div>
-                        <h5 class="fw-bold">Bersii Refill Station&nbsp;</h5>
-                        <p class="text-muted mb-4">Bersi Refill Station can offer our services to you, Our beloved customers. You can refill your Soap, Shampoo, Detegent, and Cooking Oil with this Refill Station which have been scattered in several places.</p><button class="btn btn-primary shadow" type="button" style="background: #01AA4F;border-style: none;">Learn more</button>
+            <div class="row row-cols-2 row-cols-md-3 mx-auto" style="max-width: 700px;">
+                <div class="col mb-4"></div>
+                <div class="col mb-4">
+                    <div class="text-center"><img class="rounded mb-3 fit-cover" width="150" height="150" src="assets/img/team/avatar1.jpg">
+                        <h5 class="fw-bold mb-0"><strong>Viana Salsabila</strong></h5>
+                        <p class="text-muted mb-2">CEO</p>
                     </div>
                 </div>
+                <div class="col mb-4"></div>
             </div>
-            <div class="row row-cols-1 row-cols-md-2 mx-auto" style="max-width: 900px;">
-                <div class="col order-md-last mb-5"><img class="rounded img-fluid shadow" src="img/products/Bersii-Mobile-Apps.png"></div>
-                <div class="col d-md-flex align-items-md-end align-items-lg-center mb-5">
-                    <div>
-                        <h5 class="fw-bold">Bersii Mobile App&nbsp;</h5>
-                        <p class="text-muted mb-4">We offer some other detail services in our Mobile Application for Smartphone Users.</p><button class="btn btn-primary shadow" type="button" style="background: #01AA4F;border-style: none;">Learn more</button>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="text-center"><img class="rounded mb-3 fit-cover" width="150" height="150" src="assets/img/team/avatar4.jpg">
+                        <h5 class="fw-bold mb-0"><strong>Fauzan Mustofa</strong></h5>
+                        <p class="text-muted mb-2">CMO</p>
                     </div>
                 </div>
-            </div>
-            <div class="row row-cols-1 row-cols-md-2 mx-auto" style="max-width: 900px;">
-                <div class="col mb-5"><img class="rounded img-fluid shadow" src="img/products/Bersii-Website.png"></div>
-                <div class="col d-md-flex align-items-md-end align-items-lg-center mb-5">
-                    <div>
-                        <h5 class="fw-bold">Bersii Website&nbsp;</h5>
-                        <p class="text-muted mb-4">We offer some services in Our Official Website which has been implemented untill now</p><button class="btn btn-primary shadow" type="button" style="background: #01AA4F;border-style: none;">Learn more</button>
+                <div class="col-md-3">
+                    <div class="text-center"><img class="rounded mb-3 fit-cover" width="150" height="150" src="assets/img/team/avatar4.jpg">
+                        <h5 class="fw-bold mb-0">Thomas Harman</h5>
+                        <p class="text-muted mb-2">CFO</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="text-center"><img class="rounded mb-3 fit-cover" width="150" height="150" src="assets/img/team/avatar4.jpg">
+                        <h5 class="fw-bold mb-0"><strong>Achmad Aqil S</strong></h5>
+                        <p class="text-muted mb-2">COO</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="text-center"><img class="rounded mb-3 fit-cover" width="150" height="150" src="assets/img/team/avatar4.jpg">
+                        <h5 class="fw-bold mb-0"><strong>Hanustavira Guru</strong></h5>
+                        <p class="text-muted mb-2">CTO</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <footer class="bg-primary-gradient">
         <div class="container py-4 py-lg-5">
             <div class="row justify-content-center">

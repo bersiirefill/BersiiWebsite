@@ -287,7 +287,7 @@
                     <h3 class="fs-6 fw-bold">About</h3>
                     <ul class="list-unstyled">
                         <li><a href="#">Company</a></li>
-                        <li><a href="#">Team</a></li>
+                        <li><a href="{{ route('team') }}">Team</a></li>
                         <li><a href="#">Legacy</a></li>
                     </ul>
                 </div>

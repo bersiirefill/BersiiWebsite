@@ -16,4 +16,7 @@ class LandingController extends Controller
     public function services(){
         return view('landing.services');
     }
+    public function team(){
+        return view('landing.team');
+    }
 }
