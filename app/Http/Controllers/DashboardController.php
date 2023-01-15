@@ -11,8 +11,9 @@ use App\Models\Station;
 use App\Models\IsiRefill;
 use App\Models\Supplier;
 use App\Models\ProdukSupplier;
-use App\Models\DaftarTransaksiRefill;
-use App\Models\DetailTransaksiRefill;
+use App\Models\RiwayatRefill;
+use App\Models\JenisRefillRiwayat;
+use App\Models\RiwayatTopup;
 // Planning - Tambah Agen & Driver
 
 class DashboardController extends Controller
@@ -73,6 +74,8 @@ class DashboardController extends Controller
     }
 
     public function daftar_transaksi_refill(){
-        $transaksi = DetailTransaksiRefill::all();
+        $transaksi_refill = RiwayatRefill::all();
+        $transaksi_topup = RiwayatTopup::all();
+        return view('dashboard.refill.transaksi', compact('transaksi_refill', 'transaksi_topup'));
     }
 }

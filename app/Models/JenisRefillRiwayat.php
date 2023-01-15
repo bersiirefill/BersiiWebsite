@@ -13,7 +13,8 @@ class JenisRefillRiwayat extends Model
     protected $fillable = [
         'id_trx',
         'id_produk',
-        'jumlah',
+        'jumlah_refill',
+        'harga',
     ];
 
     public function data_produk_supplier(){

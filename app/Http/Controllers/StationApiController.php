@@ -224,7 +224,8 @@ class StationApiController extends Controller
         $data = $request->all();
         $isi = DB::table('isi_refill')
         ->join('produk_supplier', 'isi_refill.id_produk', '=', 'produk_supplier.id_produk')
-        ->select('isi_refill.*', 'produk_supplier.nama_produk', 'produk_supplier.harga_produk')
+        ->select('isi_refill.*', 'produk_supplier.nama_produk', 'produk_supplier.harga_produk',
+        'produk_supplier.deskripsi_produk', 'produk_supplier.gambar_produk')
         ->where('nomor_seri', '=', $data['nomor_seri'])
         ->get();
         if($isi){
@@ -240,7 +241,42 @@ class StationApiController extends Controller
                 'data' => NULL,
             ], 500);
         }
-        
     }
 
+    public function checkout_refill(Request $request){
+        $validate = $request->validate([
+            'nomor_seri' => 'required',
+            'id_user' => 'required',
+            'jumlah_refill' => 'required',
+            'id_produk' => 'required',
+            'harga_produk' => 'required',
+        ]);
+        $data = $request->all();
+        $convert = $data['jumlah_refill'] / 1000;
+        $totalharga = $convert * $data['harga_produk'];
+        $rands = 'RFL-'.rand();
+        $rwy = RiwayatRefill::create([
+            'id_trx' => $rands,
+            'nomor_seri' => $data['nomor_seri'],
+            'id_user' => $data['id_user'],
+            'total_harga' => $totalharga,
+        ]);
+        $jrw = JenisRefillRiwayat::create([
+            'id_trx' => $rands,
+            'id_produk' => $data['id_produk'],
+            'jumlah_refill' => $data['jumlah_refill'],
+            'harga' => $totalharga
+        ]);
+        if($rwy && $jrw){
+            return response()->json([
+                'status' => 1,
+                'message' => 'Transaksi Berhasil',
+            ], 200);
+        }else{
+            return response()->json([
+                'status' => 0,
+                'message' => 'Transaksi Gagal',
+            ], 500);
+        }
+    }
 }

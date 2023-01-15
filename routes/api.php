@@ -34,6 +34,7 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::post('/station_status', [StationApiController::class, 'station_status']);
     Route::post('/change_station_status', [StationApiController::class, 'change_station_status']);
     Route::post('/station_stock', [StationApiController::class, 'station_stock']);
+    Route::post('/checkout_refill', [StationApiController::class, 'checkout_refill']);
 });
 
 

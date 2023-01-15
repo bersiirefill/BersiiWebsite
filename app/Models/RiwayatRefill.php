@@ -15,6 +15,7 @@ class RiwayatRefill extends Model
         'id_trx',
         'nomor_seri',
         'id_user',
+        'total_harga',
     ];
 
     public function data_refill_stations(){
