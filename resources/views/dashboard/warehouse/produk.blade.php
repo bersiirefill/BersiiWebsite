@@ -202,8 +202,8 @@
         $('#gambar_produk_lama').val(gambar);
         var link = document.getElementById("gambar_lama");
         // Ganti jadi https://bersii.my.id saat deployment
-        // link.setAttribute("href", 'https://bersii.my.id/storage/upload/'+gambar);
-        link.setAttribute("href", 'http://192.168.1.70:8000/storage/upload/'+gambar);
+        link.setAttribute("href", 'https://bersii.my.id/storage/upload/'+gambar);
+        //link.setAttribute("href", 'http://192.168.1.70:8000/storage/upload/'+gambar);
     });
 </script>  
 

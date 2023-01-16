@@ -75,7 +75,8 @@ Route::middleware('auth')->group(function(){
     Route::put('update_restock_station', [StationController::class, 'update_restock_station'])->name('update_restock_station');
     Route::delete('delete_restock_station/{id_produk}', [StationController::class, 'delete_restock_station'])->name('delete_restock_station');
     // Daftar Transaksi
-    Route::get('daftar_transaksi', [DashboardController::class, 'daftar_transaksi_refill'])->name('daftar_transaksi');
+    Route::get('daftar_transaksi_refill', [DashboardController::class, 'daftar_transaksi_refill'])->name('daftar_transaksi_refill');
+    Route::get('daftar_transaksi_topup', [DashboardController::class, 'daftar_transaksi_topup'])->name('daftar_transaksi_topup');
     // Logout
     Route::get('logout_action', [LoginController::class, 'logout_action'])->name('logout_action');
 });

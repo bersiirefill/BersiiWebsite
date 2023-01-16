@@ -75,7 +75,12 @@ class DashboardController extends Controller
 
     public function daftar_transaksi_refill(){
         $transaksi_refill = RiwayatRefill::all();
-        $transaksi_topup = RiwayatTopup::all();
-        return view('dashboard.refill.transaksi', compact('transaksi_refill', 'transaksi_topup'));
+        return view('dashboard.transaksi.refill', compact('transaksi_refill'));
     }
+
+    public function daftar_transaksi_topup(){
+        $transaksi_topup = RiwayatTopup::all();
+        return view('dashboard.transaksi.topup', compact('transaksi_topup'));
+    }
+
 }

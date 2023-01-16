@@ -3,57 +3,8 @@
 @section('konten')
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Transaksi</h1>
-    <p class="mb-4">Daftar Transaksi</p>
-
-    <div class="row">
-        <div class="col">
-            <!-- DataTales Example -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary float-left">Transaksi - Refill</h6>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered dataTables" id="dataTables" width="100%" cellspacing="0"
-                            role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                            <thead>
-                                <tr role="row">
-                                    <th>ID Transaksi</th>
-                                    <th>Nomor Seri</th>
-                                    <th>Total Harga (Rupiah)</th>
-                                    <th>Tanggal Transaksi</th>
-                                    <th style="width:20%">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>ID Transaksi</th>
-                                    <th>Nomor Seri</th>
-                                    <th>Total Harga (Rupiah)</th>
-                                    <th>Tanggal Transaksi</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                                @foreach($transaksi_refill as $data)
-                                <tr role=" row" class="odd">
-                                    <td class="sorting_1"><span id="id_transaksi{{ $data->id_transaksi }}">{{ $data->id_transaksi }}</span></td>
-                                    <td><span id="nomor_seri{{ $data->id_transaksi }}">{{ $data->nomor_seri }}</span></td>
-                                    <td><span id="harga{{ $data->id_transaksi }}">{{ $data->total_harga }}</span></td>
-                                    <td><span id="tanggal_transaksi{{ $data->id_transaksi }}">{{ $data->created_at }}</span></td>
-                                    <td>
-                                        <button class="btn btn-danger btn-sm del" onclick="deleteItem(this)" data-id_transaksi="{{ $data->id_transaksi }}">Hapus</button>
-                                    </td>
-                                </tr>  
-                                @endforeach      
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <h1 class="h3 mb-2 text-gray-800">Transaksi Top Up</h1>
+    <p class="mb-4">Daftar Transaksi Top Up</p>
 
     <div class="row">
         <div class="col">
@@ -87,12 +38,12 @@
                             <tbody>
                                 @foreach($transaksi_topup as $data)
                                 <tr role=" row" class="odd">
-                                    <td class="sorting_1"><span id="id_transaksi{{ $data->id_transaksi }}">{{ $data->id_transaksi }}</span></td>
-                                    <td><span id="nomor_seri{{ $data->id_transaksi }}">{{ $data->nomor_seri }}</span></td>
-                                    <td><span id="harga{{ $data->id_transaksi }}">{{ $data->total_harga }}</span></td>
-                                    <td><span id="tanggal_transaksi{{ $data->id_transaksi }}">{{ $data->created_at }}</span></td>
+                                    <td class="sorting_1"><span id="topup_id{{ $data->topup_id }}">{{ $data->topup_id }}</span></td>
+                                    <td><span id="id_user{{ $data->topup_id }}">{{ $data->id_user }}</span></td>
+                                    <td><span id="nominal{{ $data->topup_id }}">{{ $data->nominal }}</span></td>
+                                    <td><span id="tanggal_topup{{ $data->topup_id }}">{{ $data->tanggal }}</span></td>
                                     <td>
-                                        <button class="btn btn-danger btn-sm del" onclick="deleteItem(this)" data-id_transaksi="{{ $data->id_transaksi }}">Hapus</button>
+                                        <button class="btn btn-danger btn-sm dels" onclick="deleteItem(this)" data-topup_id="{{ $data->topup_id }}">Hapus</button>
                                     </td>
                                 </tr>  
                                 @endforeach      
@@ -132,8 +83,7 @@
 
     function deleteItem(e){
 
-        let id_produk = e.getAttribute('data-id_produk');
-        let nama = e.getAttribute('data-nama');
+        let id_trx = e.getAttribute('data-id_trx');
 
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
@@ -144,7 +94,7 @@
         });
         swalWithBootstrapButtons.fire({
             title: 'Anda yakin ?',
-            text: "Apa anda yakin ingin menghapus produk \n\"" + nama + "\"",
+            text: "Apa anda yakin ingin menghapus transaksi \n\"" + id_trx + "\"",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonText: 'Hapus',
@@ -155,7 +105,7 @@
                 if (result.isConfirmed){
                     $.ajax({
                         type:'DELETE',
-                        url:'{{url("/delete_produk")}}/' +id_produk,
+                        url:'{{url("/delete_produk")}}/' +id_trx,
                         data:{
                             "_token": "{{ csrf_token() }}",
                         },
@@ -184,22 +134,17 @@
 <script>
     // Call the dataTables jQuery plugin
     $(document).ready(function() {
-        $('#dataTables').DataTable({
+        var table = $('#dataTable2').DataTable({
             "language": {
                 "url": "{{ asset('js/demo/id.json') }}"
             },
             dom: 'Bfrtip',
             buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
+                {
+                    extend: 'excel',
+                    text: 'Export ke Excel'
+                },
             ]
-        });
-    });
-
-    $(document).ready(function() {
-        $('#dataTable2').DataTable({
-            "language": {
-                "url": "{{ asset('js/demo/id.json') }}"
-            }
         });
     });
 </script>

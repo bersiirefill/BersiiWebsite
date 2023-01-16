@@ -20,19 +20,20 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
     <!-- font awesome -->
-    <script src="https://use.fontawesome.com/b107056304.js"></script>
+    <script src="{{ asset('vendor/fontawesome/b107056304.js') }}"></script>
 
     <!-- datatables -->
     <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
-
+    {{-- <link href="{{ asset('vendor/datatables/jquery.dataTables.min.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('vendor/datatables/buttons.dataTables.min.css') }}" rel="stylesheet">
     <!-- text editor -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/28.0.0/classic/ckeditor.js"></script>
-
+    <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
+    
     <!-- Core plugin JavaScript-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="{{ asset('vendor/jquery/jquery-3.5.1.js') }}"></script>
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ asset('vendor/swal/sweetalert2@11.js') }}"></script>
     <link rel="icon" href="{{ asset('img/satuan.png') }}">
     <style>
         .swal-footer{
@@ -181,9 +182,18 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('daftar_transaksi') }}">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
+                    aria-expanded="true" aria-controls="collapseThree">
                     <i class="fas fa-fw fa-shopping-cart"></i>
-                    <span>Daftar Transaksi</span></a>
+                    <span>Daftar Transaksi</span>
+                </a>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
+                        <a class="collapse-item" href="{{ route('daftar_transaksi_refill') }}">Refill</a>
+                        <a class="collapse-item" href="{{ route('daftar_transaksi_topup') }}">Top Up</a>
+                    </div>
+                </div>
             </li>
 
             <!-- Divider -->
@@ -283,7 +293,7 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    {{-- <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script> --}}
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Core plugin JavaScript-->
@@ -302,8 +312,12 @@
     <!-- Page level plugins -->
     <script src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
-    {{-- <script src="js/demo/datatables-demo.js"></script> --}}
-
+    <script src="{{ asset('vendor/datatables/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('vendor/datatables/jszip.min.js') }}"></script>
+    <script src="{{ asset('vendor/datatables/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('vendor/datatables/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('vendor/datatables/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('vendor/datatables/buttons.print.min.js') }}"></script>
 </body>
 
 </html>
