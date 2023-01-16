@@ -42,7 +42,7 @@
             <div class="row row-cols-2 row-cols-md-3 mx-auto" style="max-width: 700px;">
                 <div class="col mb-4"></div>
                 <div class="col mb-4">
-                    <div class="text-center"><img class="rounded mb-3 fit-cover" width="150" height="150" src="/public/img/satuan.png">
+                    <div class="text-center"><img class="rounded mb-3 fit-cover" width="150" height="150" src="img/team/viana-pp.jpeg">
                         <h5 class="fw-bold mb-0"><strong>Viana Salsabila</strong></h5>
                         <p class="text-muted mb-2">CEO</p>
                     </div>
@@ -53,25 +53,25 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <div class="text-center"><img class="rounded mb-3 fit-cover" width="150" height="150" src="assets/img/team/avatar4.jpg">
+                    <div class="text-center"><img class="rounded mb-3 fit-cover" width="150" height="150" src="/img/team/fauzan-pp.jpeg">
                         <h5 class="fw-bold mb-0"><strong>Fauzan Mustofa</strong></h5>
                         <p class="text-muted mb-2">CMO</p>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="text-center"><img class="rounded mb-3 fit-cover" width="150" height="150" src="assets/img/team/avatar4.jpg">
+                    <div class="text-center"><img class="rounded mb-3 fit-cover" width="150" height="150" src="/img/team/thomas-pp.jpeg">
                         <h5 class="fw-bold mb-0">Thomas Harman</h5>
                         <p class="text-muted mb-2">CFO</p>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="text-center"><img class="rounded mb-3 fit-cover" width="150" height="150" src="assets/img/team/avatar4.jpg">
+                    <div class="text-center"><img class="rounded mb-3 fit-cover" width="150" height="150" src="/img/team/agil-pp.jpeg">
                         <h5 class="fw-bold mb-0"><strong>Achmad Aqil S</strong></h5>
                         <p class="text-muted mb-2">COO</p>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="text-center"><img class="rounded mb-3 fit-cover" width="150" height="150" src="assets/img/team/avatar4.jpg">
+                    <div class="text-center"><img class="rounded mb-3 fit-cover" width="150" height="150" src="/img/team/hanvir-pp.jpeg">
                         <h5 class="fw-bold mb-0"><strong>Hanustavira Guru</strong></h5>
                         <p class="text-muted mb-2">CTO</p>
                     </div>
